@@ -1,4 +1,4 @@
-# @your-org/core-lib
+# @nexttop.dev/core-lib
 
 <p align="left">
   <a aria-label="Build" href="https://github.com/hunght/nextjs-monorepo/actions?query=workflow%3ACI">

@@ -5,8 +5,8 @@
 ### Patch Changes
 
 - Updated dependencies [[`fcd68ed`](https://github.com/hunght/nextjs-monorepo/commit/fcd68ed476734fefda85f5ffa2cf82cbd1502aa6)]:
-  - @your-org/core-lib@3.8.1
-  - @your-org/ui-lib@3.6.1
+  - @nexttop.dev/core-lib@3.8.1
+  - @nexttop.dev/ui-lib@3.6.1
 
 ## 3.34.0
 
@@ -25,7 +25,7 @@
 ### Patch Changes
 
 - Updated dependencies [[`bbc1a8f`](https://github.com/hunght/nextjs-monorepo/commit/bbc1a8f07500d13ddf3e86f2cb4111f4f22ddb11)]:
-  - @your-org/db-main-prisma@2.7.0
+  - @nexttop.dev/db-main-prisma@2.7.0
 
 ## 3.33.0
 
@@ -48,9 +48,9 @@
 ### Patch Changes
 
 - Updated dependencies [[`77e758b`](https://github.com/hunght/nextjs-monorepo/commit/77e758bbed1bc4f13b99cdd0ed90fa11fde9518f)]:
-  - @your-org/core-lib@3.8.0
-  - @your-org/db-main-prisma@2.6.0
-  - @your-org/ui-lib@3.6.0
+  - @nexttop.dev/core-lib@3.8.0
+  - @nexttop.dev/db-main-prisma@2.6.0
+  - @nexttop.dev/ui-lib@3.6.0
 
 ## 3.30.0
 
@@ -79,16 +79,16 @@
 ### Patch Changes
 
 - Updated dependencies [[`6b78e59`](https://github.com/hunght/nextjs-monorepo/commit/6b78e59e4933814e69c26c86743a5b003c92dc2a)]:
-  - @your-org/core-lib@3.7.0
-  - @your-org/ui-lib@3.5.0
-  - @your-org/db-main-prisma@2.5.0
+  - @nexttop.dev/core-lib@3.7.0
+  - @nexttop.dev/ui-lib@3.5.0
+  - @nexttop.dev/db-main-prisma@2.5.0
 
 ## 3.26.3
 
 ### Patch Changes
 
 - Updated dependencies [[`dd239d6`](https://github.com/hunght/nextjs-monorepo/commit/dd239d63d99fdbf23150faf776f8c4be4dcf6e20)]:
-  - @your-org/db-main-prisma@2.4.0
+  - @nexttop.dev/db-main-prisma@2.4.0
 
 ## 3.26.2
 
@@ -99,9 +99,9 @@
 * [#354](https://github.com/hunght/nextjs-monorepo/pull/354) [`16e4e2d`](https://github.com/hunght/nextjs-monorepo/commit/16e4e2d7b6023a0cc9bf62120d7b5b8e223740b5) Thanks [@belgattitude](https://github.com/belgattitude)! - Improve eslint config and add eslint-plugin-import
 
 * Updated dependencies [[`db7870f`](https://github.com/hunght/nextjs-monorepo/commit/db7870fbef1ac0422e8d142ab6bcd7d593abd685), [`16e4e2d`](https://github.com/hunght/nextjs-monorepo/commit/16e4e2d7b6023a0cc9bf62120d7b5b8e223740b5)]:
-  - @your-org/core-lib@3.6.1
-  - @your-org/db-main-prisma@2.3.1
-  - @your-org/ui-lib@3.4.1
+  - @nexttop.dev/core-lib@3.6.1
+  - @nexttop.dev/db-main-prisma@2.3.1
+  - @nexttop.dev/ui-lib@3.4.1
 
 ## 3.26.1
 
@@ -126,9 +126,9 @@
 ### Patch Changes
 
 - Updated dependencies [[`a416f35`](https://github.com/hunght/nextjs-monorepo/commit/a416f3550dd0bb8412297295206f586630e586c0)]:
-  - @your-org/core-lib@3.6.0
-  - @your-org/db-main-prisma@2.3.0
-  - @your-org/ui-lib@3.4.0
+  - @nexttop.dev/core-lib@3.6.0
+  - @nexttop.dev/db-main-prisma@2.3.0
+  - @nexttop.dev/ui-lib@3.4.0
 
 ## 3.24.0
 
@@ -139,9 +139,9 @@
 ### Patch Changes
 
 - Updated dependencies [[`2ccb056`](https://github.com/hunght/nextjs-monorepo/commit/2ccb056660dfd84a75e1a8733e56cc8d9b3fd353)]:
-  - @your-org/core-lib@3.5.0
-  - @your-org/db-main-prisma@2.2.0
-  - @your-org/ui-lib@3.3.0
+  - @nexttop.dev/core-lib@3.5.0
+  - @nexttop.dev/db-main-prisma@2.2.0
+  - @nexttop.dev/ui-lib@3.3.0
 
 ## 3.23.1
 
@@ -170,7 +170,7 @@
 ### Patch Changes
 
 - Updated dependencies [[`6cc466a`](https://github.com/hunght/nextjs-monorepo/commit/6cc466a8d0caf4e2ec8931ce87696ee83af71d19)]:
-  - @your-org/db-main-prisma@2.1.0
+  - @nexttop.dev/db-main-prisma@2.1.0
 
 ## 3.21.0
 
@@ -191,7 +191,7 @@
 ### Patch Changes
 
 - Updated dependencies [[`3b15241`](https://github.com/hunght/nextjs-monorepo/commit/3b15241726d57c7ddafc9b2766cb670ada617def)]:
-  - @your-org/ui-lib@3.2.0
+  - @nexttop.dev/ui-lib@3.2.0
 
 ## 3.19.0
 
@@ -218,7 +218,7 @@
 ### Patch Changes
 
 - Updated dependencies [[`d3b8916`](https://github.com/hunght/nextjs-monorepo/commit/d3b8916b9a9e208e746e85363f6a18dc164fee6c)]:
-  - @your-org/db-main-prisma@2.0.0
+  - @nexttop.dev/db-main-prisma@2.0.0
 
 ## 3.16.0
 
@@ -265,8 +265,8 @@
 - [#181](https://github.com/hunght/nextjs-monorepo/pull/181) [`c5173ea`](https://github.com/hunght/nextjs-monorepo/commit/c5173ea4d9ae5f476c0434ad25a6ff7735350e06) Thanks [@belgattitude](https://github.com/belgattitude)! - Fix possible issues with peerDeps
 
 - Updated dependencies [[`c5173ea`](https://github.com/hunght/nextjs-monorepo/commit/c5173ea4d9ae5f476c0434ad25a6ff7735350e06)]:
-  - @your-org/core-lib@3.4.0
-  - @your-org/db-main-prisma@1.2.1
+  - @nexttop.dev/core-lib@3.4.0
+  - @nexttop.dev/db-main-prisma@1.2.1
 
 ## 3.12.0
 
@@ -279,9 +279,9 @@
 - [#172](https://github.com/hunght/nextjs-monorepo/pull/172) [`01e5e89`](https://github.com/hunght/nextjs-monorepo/commit/01e5e89e028029c5ef415f2f825d022f96a97fd4) Thanks [@belgattitude](https://github.com/belgattitude)! - Relaxed codeclimate config for react components
 
 - Updated dependencies [[`4929105`](https://github.com/hunght/nextjs-monorepo/commit/4929105635b9bfd460a5653ceb8cb05353bb9a8f), [`01e5e89`](https://github.com/hunght/nextjs-monorepo/commit/01e5e89e028029c5ef415f2f825d022f96a97fd4), [`4929105`](https://github.com/hunght/nextjs-monorepo/commit/4929105635b9bfd460a5653ceb8cb05353bb9a8f), [`3c8ef69`](https://github.com/hunght/nextjs-monorepo/commit/3c8ef6900120557fae33ff565595f8fe2b9628a9), [`4929105`](https://github.com/hunght/nextjs-monorepo/commit/4929105635b9bfd460a5653ceb8cb05353bb9a8f), [`4929105`](https://github.com/hunght/nextjs-monorepo/commit/4929105635b9bfd460a5653ceb8cb05353bb9a8f)]:
-  - @your-org/core-lib@3.3.0
-  - @your-org/db-main-prisma@1.2.0
-  - @your-org/ui-lib@3.1.3
+  - @nexttop.dev/core-lib@3.3.0
+  - @nexttop.dev/db-main-prisma@1.2.0
+  - @nexttop.dev/ui-lib@3.1.3
 
 ## 3.11.1
 
@@ -290,9 +290,9 @@
 - [#135](https://github.com/hunght/nextjs-monorepo/pull/135) [`d548b70`](https://github.com/hunght/nextjs-monorepo/commit/d548b70b53baaa67d6de4e8a7c6254b59db3ced3) Thanks [@belgattitude](https://github.com/belgattitude)! - CI: use built-in yarn cache from setup/node@v2.2
 
 - Updated dependencies [[`d548b70`](https://github.com/hunght/nextjs-monorepo/commit/d548b70b53baaa67d6de4e8a7c6254b59db3ced3)]:
-  - @your-org/core-lib@3.2.2
-  - @your-org/db-main-prisma@1.1.3
-  - @your-org/ui-lib@3.1.2
+  - @nexttop.dev/core-lib@3.2.2
+  - @nexttop.dev/db-main-prisma@1.1.3
+  - @nexttop.dev/ui-lib@3.1.2
 
 ## 3.11.0
 
@@ -305,7 +305,7 @@
 - [#117](https://github.com/hunght/nextjs-monorepo/pull/117) [`4607a02`](https://github.com/hunght/nextjs-monorepo/commit/4607a02d91e87134f306d25dfeabdba9c83b3837) Thanks [@belgattitude](https://github.com/belgattitude)! - Improved documentation
 
 - Updated dependencies [[`4607a02`](https://github.com/hunght/nextjs-monorepo/commit/4607a02d91e87134f306d25dfeabdba9c83b3837)]:
-  - @your-org/db-main-prisma@1.1.2
+  - @nexttop.dev/db-main-prisma@1.1.2
 
 ## 3.10.0
 
@@ -354,9 +354,9 @@
 - [#84](https://github.com/hunght/nextjs-monorepo/pull/84) [`697842e`](https://github.com/hunght/nextjs-monorepo/commit/697842e913bd7164b21b51c9c9adb943b0904293) Thanks [@belgattitude](https://github.com/belgattitude)! - ESlint: added plugin:testing-library/react
 
 - Updated dependencies [[`a9c0d5e`](https://github.com/hunght/nextjs-monorepo/commit/a9c0d5e2651732ab23f1a335acddd23aef5a6b88), [`697842e`](https://github.com/hunght/nextjs-monorepo/commit/697842e913bd7164b21b51c9c9adb943b0904293), [`697842e`](https://github.com/hunght/nextjs-monorepo/commit/697842e913bd7164b21b51c9c9adb943b0904293)]:
-  - @your-org/core-lib@3.2.1
-  - @your-org/db-main-prisma@1.1.1
-  - @your-org/ui-lib@3.1.1
+  - @nexttop.dev/core-lib@3.2.1
+  - @nexttop.dev/db-main-prisma@1.1.1
+  - @nexttop.dev/ui-lib@3.1.1
 
 ## 3.6.0
 
@@ -369,7 +369,7 @@
 ### Patch Changes
 
 - Updated dependencies [[`5010c94`](https://github.com/hunght/nextjs-monorepo/commit/5010c944162165ab47923718a9ccaf1cafc419ee)]:
-  - @your-org/db-main-prisma@1.1.0
+  - @nexttop.dev/db-main-prisma@1.1.0
 
 ## 3.5.0
 
@@ -386,8 +386,8 @@
 ### Patch Changes
 
 - Updated dependencies [[`152e4ad`](https://github.com/hunght/nextjs-monorepo/commit/152e4adc8be95f192b066f75ef4bb2dd42c46d12)]:
-  - @your-org/core-lib@3.2.0
-  - @your-org/ui-lib@3.1.0
+  - @nexttop.dev/core-lib@3.2.0
+  - @nexttop.dev/ui-lib@3.1.0
 
 ## 3.3.0
 
@@ -398,7 +398,7 @@
 ### Patch Changes
 
 - Updated dependencies [[`800ccdc`](https://github.com/hunght/nextjs-monorepo/commit/800ccdcc93884157d4b9535272625a5a5719e83d), [`800ccdc`](https://github.com/hunght/nextjs-monorepo/commit/800ccdcc93884157d4b9535272625a5a5719e83d)]:
-  - @your-org/core-lib@3.1.0
+  - @nexttop.dev/core-lib@3.1.0
 
 ## 3.2.0
 

@@ -1,7 +1,7 @@
+import type { UnPromisify } from '@nexttop.dev/core-lib';
+import { Asserts } from '@nexttop.dev/core-lib';
+import type { PrismaClientDbMain } from '@nexttop.dev/db-main-prisma';
 import { InternalServerError, NotFound } from '@tsed/exceptions';
-import type { UnPromisify } from '@your-org/core-lib';
-import { Asserts } from '@your-org/core-lib';
-import type { PrismaClientDbMain } from '@your-org/db-main-prisma';
 
 export type GetPosts = UnPromisify<
   ReturnType<typeof PostRepositorySsr['prototype']['getPosts']>

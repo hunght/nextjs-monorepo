@@ -1,6 +1,6 @@
 import type { EmotionCache } from '@emotion/react';
+import { isNonEmptyString } from '@nexttop.dev/core-lib';
 import * as Sentry from '@sentry/browser';
-import { isNonEmptyString } from '@your-org/core-lib';
 import { appWithTranslation } from 'next-i18next';
 import type { AppProps as NextAppProps } from 'next/app';
 import Head from 'next/head';

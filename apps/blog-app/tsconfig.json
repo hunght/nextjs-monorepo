@@ -11,10 +11,10 @@
     "paths": {
       "@/test-utils": ["../config/jest/test-utils"],
       "@/components/*": ["./components/*"],
-      "@your-org/ui-lib/*": ["../../../packages/ui-lib/src/*"],
-      "@your-org/ui-lib": ["../../../packages/ui-lib/src/index"],
-      "@your-org/core-lib/*": ["../../../packages/core-lib/src/*"],
-      "@your-org/core-lib": ["../../../packages/core-lib/src/index"]
+      "@nexttop.dev/ui-lib/*": ["../../../packages/ui-lib/src/*"],
+      "@nexttop.dev/ui-lib": ["../../../packages/ui-lib/src/index"],
+      "@nexttop.dev/core-lib/*": ["../../../packages/core-lib/src/*"],
+      "@nexttop.dev/core-lib": ["../../../packages/core-lib/src/index"]
     }
   },
   "exclude": [".next"],

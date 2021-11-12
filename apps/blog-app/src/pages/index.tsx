@@ -1,4 +1,4 @@
-import { sayHello } from '@your-org/core-lib';
+import { sayHello } from '@nexttop.dev/core-lib';
 import { NextSeo } from 'next-seo';
 import Image from 'next/image';
 import type { Post } from '../data/blog';
@@ -19,7 +19,7 @@ export default function Blog({ posts }: Props) {
       <MainLayout>
         <h3>I'm the SSG blog-app</h3>
         <ul>
-          <li>{`Foo says: ${sayHello('World')} from @your-org/core-lib`}</li>
+          <li>{`Foo says: ${sayHello('World')} from @nexttop.dev/core-lib`}</li>
         </ul>
         <h3>Here's the blog posts</h3>
         <ul>

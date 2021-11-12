@@ -5,8 +5,8 @@
 ### Patch Changes
 
 - Updated dependencies [[`fcd68ed`](https://github.com/hunght/nextjs-monorepo/commit/fcd68ed476734fefda85f5ffa2cf82cbd1502aa6)]:
-  - @your-org/core-lib@3.8.1
-  - @your-org/ui-lib@3.6.1
+  - @nexttop.dev/core-lib@3.8.1
+  - @nexttop.dev/ui-lib@3.6.1
 
 ## 3.20.0
 
@@ -23,8 +23,8 @@
 ### Patch Changes
 
 - Updated dependencies [[`77e758b`](https://github.com/hunght/nextjs-monorepo/commit/77e758bbed1bc4f13b99cdd0ed90fa11fde9518f)]:
-  - @your-org/core-lib@3.8.0
-  - @your-org/ui-lib@3.6.0
+  - @nexttop.dev/core-lib@3.8.0
+  - @nexttop.dev/ui-lib@3.6.0
 
 ## 3.18.0
 
@@ -41,8 +41,8 @@
 ### Patch Changes
 
 - Updated dependencies [[`6b78e59`](https://github.com/hunght/nextjs-monorepo/commit/6b78e59e4933814e69c26c86743a5b003c92dc2a)]:
-  - @your-org/core-lib@3.7.0
-  - @your-org/ui-lib@3.5.0
+  - @nexttop.dev/core-lib@3.7.0
+  - @nexttop.dev/ui-lib@3.5.0
 
 ## 3.16.2
 
@@ -53,8 +53,8 @@
 * [#354](https://github.com/hunght/nextjs-monorepo/pull/354) [`16e4e2d`](https://github.com/hunght/nextjs-monorepo/commit/16e4e2d7b6023a0cc9bf62120d7b5b8e223740b5) Thanks [@belgattitude](https://github.com/belgattitude)! - Improve eslint config and add eslint-plugin-import
 
 * Updated dependencies [[`db7870f`](https://github.com/hunght/nextjs-monorepo/commit/db7870fbef1ac0422e8d142ab6bcd7d593abd685), [`16e4e2d`](https://github.com/hunght/nextjs-monorepo/commit/16e4e2d7b6023a0cc9bf62120d7b5b8e223740b5)]:
-  - @your-org/core-lib@3.6.1
-  - @your-org/ui-lib@3.4.1
+  - @nexttop.dev/core-lib@3.6.1
+  - @nexttop.dev/ui-lib@3.4.1
 
 ## 3.16.1
 
@@ -73,8 +73,8 @@
 ### Patch Changes
 
 - Updated dependencies [[`a416f35`](https://github.com/hunght/nextjs-monorepo/commit/a416f3550dd0bb8412297295206f586630e586c0)]:
-  - @your-org/core-lib@3.6.0
-  - @your-org/ui-lib@3.4.0
+  - @nexttop.dev/core-lib@3.6.0
+  - @nexttop.dev/ui-lib@3.4.0
 
 ## 3.15.0
 
@@ -85,8 +85,8 @@
 ### Patch Changes
 
 - Updated dependencies [[`2ccb056`](https://github.com/hunght/nextjs-monorepo/commit/2ccb056660dfd84a75e1a8733e56cc8d9b3fd353)]:
-  - @your-org/core-lib@3.5.0
-  - @your-org/ui-lib@3.3.0
+  - @nexttop.dev/core-lib@3.5.0
+  - @nexttop.dev/ui-lib@3.3.0
 
 ## 3.14.0
 
@@ -127,7 +127,7 @@
 ### Patch Changes
 
 - Updated dependencies [[`3b15241`](https://github.com/hunght/nextjs-monorepo/commit/3b15241726d57c7ddafc9b2766cb670ada617def)]:
-  - @your-org/ui-lib@3.2.0
+  - @nexttop.dev/ui-lib@3.2.0
 
 ## 3.9.0
 
@@ -160,7 +160,7 @@
 - [#181](https://github.com/hunght/nextjs-monorepo/pull/181) [`c5173ea`](https://github.com/hunght/nextjs-monorepo/commit/c5173ea4d9ae5f476c0434ad25a6ff7735350e06) Thanks [@belgattitude](https://github.com/belgattitude)! - Fix possible issues with peerDeps
 
 - Updated dependencies [[`c5173ea`](https://github.com/hunght/nextjs-monorepo/commit/c5173ea4d9ae5f476c0434ad25a6ff7735350e06)]:
-  - @your-org/core-lib@3.4.0
+  - @nexttop.dev/core-lib@3.4.0
 
 ## 3.6.3
 
@@ -169,8 +169,8 @@
 - [#172](https://github.com/hunght/nextjs-monorepo/pull/172) [`01e5e89`](https://github.com/hunght/nextjs-monorepo/commit/01e5e89e028029c5ef415f2f825d022f96a97fd4) Thanks [@belgattitude](https://github.com/belgattitude)! - Relaxed codeclimate config for react components
 
 - Updated dependencies [[`4929105`](https://github.com/hunght/nextjs-monorepo/commit/4929105635b9bfd460a5653ceb8cb05353bb9a8f), [`01e5e89`](https://github.com/hunght/nextjs-monorepo/commit/01e5e89e028029c5ef415f2f825d022f96a97fd4), [`4929105`](https://github.com/hunght/nextjs-monorepo/commit/4929105635b9bfd460a5653ceb8cb05353bb9a8f)]:
-  - @your-org/core-lib@3.3.0
-  - @your-org/ui-lib@3.1.3
+  - @nexttop.dev/core-lib@3.3.0
+  - @nexttop.dev/ui-lib@3.1.3
 
 ## 3.6.2
 
@@ -179,8 +179,8 @@
 - [#135](https://github.com/hunght/nextjs-monorepo/pull/135) [`d548b70`](https://github.com/hunght/nextjs-monorepo/commit/d548b70b53baaa67d6de4e8a7c6254b59db3ced3) Thanks [@belgattitude](https://github.com/belgattitude)! - CI: use built-in yarn cache from setup/node@v2.2
 
 - Updated dependencies [[`d548b70`](https://github.com/hunght/nextjs-monorepo/commit/d548b70b53baaa67d6de4e8a7c6254b59db3ced3)]:
-  - @your-org/core-lib@3.2.2
-  - @your-org/ui-lib@3.1.2
+  - @nexttop.dev/core-lib@3.2.2
+  - @nexttop.dev/ui-lib@3.1.2
 
 ## 3.6.1
 
@@ -223,8 +223,8 @@
 - [#84](https://github.com/hunght/nextjs-monorepo/pull/84) [`697842e`](https://github.com/hunght/nextjs-monorepo/commit/697842e913bd7164b21b51c9c9adb943b0904293) Thanks [@belgattitude](https://github.com/belgattitude)! - ESlint: added plugin:testing-library/react
 
 - Updated dependencies [[`a9c0d5e`](https://github.com/hunght/nextjs-monorepo/commit/a9c0d5e2651732ab23f1a335acddd23aef5a6b88), [`697842e`](https://github.com/hunght/nextjs-monorepo/commit/697842e913bd7164b21b51c9c9adb943b0904293), [`697842e`](https://github.com/hunght/nextjs-monorepo/commit/697842e913bd7164b21b51c9c9adb943b0904293)]:
-  - @your-org/core-lib@3.2.1
-  - @your-org/ui-lib@3.1.1
+  - @nexttop.dev/core-lib@3.2.1
+  - @nexttop.dev/ui-lib@3.1.1
 
 ## 3.3.0
 
@@ -235,15 +235,15 @@
 ### Patch Changes
 
 - Updated dependencies [[`152e4ad`](https://github.com/hunght/nextjs-monorepo/commit/152e4adc8be95f192b066f75ef4bb2dd42c46d12)]:
-  - @your-org/core-lib@3.2.0
-  - @your-org/ui-lib@3.1.0
+  - @nexttop.dev/core-lib@3.2.0
+  - @nexttop.dev/ui-lib@3.1.0
 
 ## 3.2.1
 
 ### Patch Changes
 
 - Updated dependencies [[`800ccdc`](https://github.com/hunght/nextjs-monorepo/commit/800ccdcc93884157d4b9535272625a5a5719e83d), [`800ccdc`](https://github.com/hunght/nextjs-monorepo/commit/800ccdcc93884157d4b9535272625a5a5719e83d)]:
-  - @your-org/core-lib@3.1.0
+  - @nexttop.dev/core-lib@3.1.0
 
 ## 3.2.0
 
@@ -276,7 +276,7 @@
 ### Patch Changes
 
 - Updated dependencies [[`9f04b88`](https://github.com/hunght/nextjs-monorepo/commit/9f04b88d966e804ddc12e79372b3ac14f7330b86)]:
-  - @your-org/core-lib@3.0.0
+  - @nexttop.dev/core-lib@3.0.0
 
 ## 2.0.0
 
@@ -301,4 +301,4 @@
 ### Patch Changes
 
 - Updated dependencies [[`3dd0d6a`](https://github.com/hunght/nextjs-monorepo/commit/3dd0d6a1ff20c49d4ad71907ea243287fbc36890), [`31475c5`](https://github.com/hunght/nextjs-monorepo/commit/31475c58ca1ebc155f178240468d0d6a9d323e34)]:
-  - @your-org/core-lib@2.0.0
+  - @nexttop.dev/core-lib@2.0.0

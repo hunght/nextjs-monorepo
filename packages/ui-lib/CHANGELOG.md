@@ -1,4 +1,4 @@
-# @your-org/ui-lib
+# @nexttop.dev/ui-lib
 
 ## 3.6.1
 

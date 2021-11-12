@@ -1,4 +1,4 @@
-# @your-org/core-lib
+# @nexttop.dev/core-lib
 
 ## 3.8.1
 

@@ -1,8 +1,8 @@
+import { Asserts } from '@nexttop.dev/core-lib';
+import { JsonApiResponseFactory } from '@nexttop.dev/core-lib/api/json-api';
+import { JsonApiErrorFactory } from '@nexttop.dev/core-lib/api/json-api/json-api-error.factory';
+import { StringConvert } from '@nexttop.dev/core-lib/utils/string-convert';
 import { BadRequest, MethodNotAllowed } from '@tsed/exceptions';
-import { Asserts } from '@your-org/core-lib';
-import { JsonApiResponseFactory } from '@your-org/core-lib/api/json-api';
-import { JsonApiErrorFactory } from '@your-org/core-lib/api/json-api/json-api-error.factory';
-import { StringConvert } from '@your-org/core-lib/utils/string-convert';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { PostRepositorySsr } from '@/backend/api/rest/post-repository.ssr';
 import { prismaClient } from '@/backend/config/container.config';
