@@ -17,7 +17,7 @@ Basic demo nextjs web-app, part of the [nextjs-monorepo-example](https://github.
 ## Quick start
 
 > For rest/api database access be sure to start `docker-compose up main-db`,
-> see detailed instructions (seeding, docker, supabase...) in the [@your-org/db-main-prisma README](https://github.com/hunght/nextjs-monorepo/blob/main/packages/db-main-prisma/README.md).
+> see detailed instructions (seeding, docker, supabase...) in the [@nexttop.dev/db-main-prisma README](https://github.com/hunght/nextjs-monorepo/blob/main/packages/db-main-prisma/README.md).
 
 ```bash
 $ yarn install
@@ -46,9 +46,9 @@ This app relies on packages in the monorepo, see detailed instructions in [READM
 ```json5
 {
   dependencies: {
-    "@your-org/core-lib": "workspace:*",
-    "@your-org/db-main-prisma": "workspace:*",
-    "@your-org/ui-lib": "workspace:*",
+    "@nexttop.dev/core-lib": "workspace:*",
+    "@nexttop.dev/db-main-prisma": "workspace:*",
+    "@nexttop.dev/ui-lib": "workspace:*",
   },
 }
 ```
@@ -60,12 +60,14 @@ And their counterparts in [tsconfig.json](./tsconfig.json)
   "compilerOptions": {
     "baseUrl": "./src",
     "paths": {
-      "@your-org/ui-lib/*": ["../../../packages/ui-lib/src/*"],
-      "@your-org/ui-lib": ["../../../packages/ui-lib/src/index"],
-      "@your-org/core-lib/*": ["../../../packages/core-lib/src/*"],
-      "@your-org/core-lib": ["../../../packages/core-lib/src/index"],
-      "@your-org/db-main-prisma/*": ["../../../packages/db-main-prisma/src/*"],
-      "@your-org/db-main-prisma": [
+      "@nexttop.dev/ui-lib/*": ["../../../packages/ui-lib/src/*"],
+      "@nexttop.dev/ui-lib": ["../../../packages/ui-lib/src/index"],
+      "@nexttop.dev/core-lib/*": ["../../../packages/core-lib/src/*"],
+      "@nexttop.dev/core-lib": ["../../../packages/core-lib/src/index"],
+      "@nexttop.dev/db-main-prisma/*": [
+        "../../../packages/db-main-prisma/src/*",
+      ],
+      "@nexttop.dev/db-main-prisma": [
         "../../../packages/db-main-prisma/src/index",
       ],
     },

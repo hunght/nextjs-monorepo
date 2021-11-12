@@ -1,5 +1,5 @@
-import { Asserts } from '@your-org/core-lib';
-import { PrismaManager, PrismaClientDbMain } from '@your-org/db-main-prisma';
+import { Asserts } from '@nexttop.dev/core-lib';
+import { PrismaManager, PrismaClientDbMain } from '@nexttop.dev/db-main-prisma';
 
 const isDev = process.env?.NODE_ENV === 'development';
 

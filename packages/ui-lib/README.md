@@ -1,4 +1,4 @@
-# @your-org/ui-lib
+# @nexttop.dev/ui-lib
 
 <p align="left">
   <a aria-label="Build" href="https://github.com/hunght/nextjs-monorepo/actions?query=workflow%3ACI">

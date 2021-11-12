@@ -1,4 +1,4 @@
-import { sayHello } from '@your-org/core-lib';
+import { sayHello } from '@nexttop.dev/core-lib';
 import type { NextApiRequest, NextApiResponse } from 'next';
 
 export default async function ApiHelloRoute(

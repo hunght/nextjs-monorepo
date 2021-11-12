@@ -1,4 +1,4 @@
-import { ArrayUtils } from '@your-org/core-lib';
+import { ArrayUtils } from '@nexttop.dev/core-lib';
 import { PoemCard } from './poem-card';
 import type { GetPoems } from '@/backend/api/rest/poem-repository.ssr';
 

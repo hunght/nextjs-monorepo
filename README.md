@@ -185,7 +185,7 @@ Initialize a package.json with the name of your package.
 
 ```json5
 {
-  "name": "@your-org/magnificent-poney",
+  "name": "@nexttop.dev/magnificent-poney",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -250,7 +250,7 @@ yarn and pnpm.
 
 ```bash
 cd apps/my-app
-yarn add @your-org/magnificent-poney@'workspace:*'
+yarn add @nexttop.dev/magnificent-poney@'workspace:*'
 ```
 
 Inspiration can be found in [apps/web-app/package.json](./apps/web-app/package.json).
@@ -262,7 +262,7 @@ Inspiration can be found in [apps/web-app/package.json](./apps/web-app/package.j
 {
   "name": "my-app",
   "dependencies": {
-    "@your-org/magnificient-poney": "workspace:*",
+    "@nexttop.dev/magnificient-poney": "workspace:*",
   },
 }
 ```
@@ -287,10 +287,10 @@ Inspiration can be found in [apps/web-app/tsconfig.json](./apps/web-app/tsconfig
       // regular app aliases
       "@/components/*": ["./components/*"],
       // packages aliases, relative to app_directory/baseUrl
-      "@your-org/magnificent-poney/*": [
+      "@nexttop.dev/magnificent-poney/*": [
         "../../../packages/magnificent-poney/src/*",
       ],
-      "@your-org/magnificent-poney": [
+      "@nexttop.dev/magnificent-poney": [
         "../../../packages/magnificent-poney/src/index",
       ],
     },
@@ -302,7 +302,7 @@ Inspiration can be found in [apps/web-app/tsconfig.json](./apps/web-app/tsconfig
 >
 > - Don't try to set aliases in the global tsonfig.base.json to keep strict with
 >   graph dependencies.
-> - The **star** in `@your-org/magnificent-poney/*` allows you to import subfolders. If you use
+> - The **star** in `@nexttop.dev/magnificent-poney/*` allows you to import subfolders. If you use
 >   a barrel file (index.ts), the alias with star can be removed.
 
 </details>
@@ -356,7 +356,7 @@ const nextConfig = {
 
 #### Step 3.4: Using the package
 
-The packages are now linked to your app, just import them like regular packages: `import { poney } from '@your-org/magnificent-poney'`.
+The packages are now linked to your app, just import them like regular packages: `import { poney } from '@nexttop.dev/magnificent-poney'`.
 
 ### 4. Publishing
 
@@ -408,10 +408,10 @@ call their counterparts defined in packages and apps.
     "share:static:hardlink": "yarn workspaces foreach -pv --include '*-app' run share:static:hardlink",
     "apps:build": "yarn workspaces foreach -ptv --include '*-app' run build",
     "apps:clean": "yarn workspaces foreach -ptv --include '*-app' run clean",
-    "packages:build": "yarn workspaces foreach -ptv --include '@your-org/*' run build",
-    "packages:lint": "yarn workspaces foreach -ptv --include '@your-org/*' run lint",
-    "packages:typecheck": "yarn workspaces foreach -ptv --include '@your-org/*' run typecheck",
-    "packages:clean": "yarn workspaces foreach -ptv --include '@your-org/*' run clean",
+    "packages:build": "yarn workspaces foreach -ptv --include '@nexttop.dev/*' run build",
+    "packages:lint": "yarn workspaces foreach -ptv --include '@nexttop.dev/*' run lint",
+    "packages:typecheck": "yarn workspaces foreach -ptv --include '@nexttop.dev/*' run typecheck",
+    "packages:clean": "yarn workspaces foreach -ptv --include '@nexttop.dev/*' run clean",
     "docker:up": "docker-compose up -d",
     "docker:up:main-db": "docker-compose up -d main-db",
     "docker:down": "docker-compose down",
