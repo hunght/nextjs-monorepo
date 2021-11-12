@@ -6,14 +6,8 @@
   <a aria-label="Build" href="https://github.com/hunght/nextjs-monorepo/actions?query=workflow%3ACI">
     <img alt="build" src="https://img.shields.io/github/workflow/status/hunght/nextjs-monorepo/CI-web-app/main?label=CI&logo=github&style=flat-quare&labelColor=000000" />
   </a>
-  <a aria-label="Codefactor grade" href=https://www.codefactor.io/repository/github/hunght/nextjs-monorepo">
+  <a aria-label="Codefactor grade" href="https://www.codefactor.io/repository/github/hunght/nextjs-monorepo">
     <img alt="Codefactor" src="https://img.shields.io/codefactor/grade/github/hunght/nextjs-monorepo?label=Codefactor&logo=codefactor&style=flat-quare&labelColor=000000" />
-  </a>
-  <a aria-label="CodeClimate maintainability" href="https://codeclimate.com/github/hunght/nextjs-monorepo">
-    <img alt="Maintainability" src="https://img.shields.io/codeclimate/maintainability/hunght/nextjs-monorepo?label=Maintainability&logo=code-climate&style=flat-quare&labelColor=000000" />
-  </a>
-  <a aria-label="CodeClimate technical debt" href="https://codeclimate.com/github/hunght/nextjs-monorepo">
-    <img alt="Techdebt" src="https://img.shields.io/codeclimate/tech-debt/hunght/nextjs-monorepo?label=TechDebt&logo=code-climate&style=flat-quare&labelColor=000000" />
   </a>
   <a aria-label="Codacy grade" href="https://www.codacy.com/gh/hunght/nextjs-monorepo/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=hunght/nextjs-monorepo&amp;utm_campaign=Badge_Grade">
     <img alt="Codacy grade" src="https://img.shields.io/codacy/grade/dff9c944af284a0fad4e165eb1727467?logo=codacy&style=flat-square&labelColor=000&label=Codacy">
