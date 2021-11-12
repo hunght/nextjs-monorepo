@@ -3,7 +3,7 @@ name: CI-e2e-prisma
 on:
   push:
     branches:
-      - dev
+      - develop
       - main
     paths:
       - "packages/db-main-prisma"

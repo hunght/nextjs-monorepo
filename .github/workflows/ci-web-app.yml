@@ -3,7 +3,7 @@ name: CI-web-app
 on:
   push:
     branches:
-      - dev
+      - develop
       - main
     paths:
       - "apps/web-app/**"

@@ -3,7 +3,7 @@ name: CI-blog-app
 on:
   push:
     branches:
-      - dev
+      - develop
       - main
     paths:
       - "apps/blog-app/**"

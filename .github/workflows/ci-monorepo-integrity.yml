@@ -3,7 +3,7 @@ name: CI-monorepo-integrity
 on:
   push:
     branches:
-      - dev
+      - develop
       - main
     paths:
       - "yarn.lock"

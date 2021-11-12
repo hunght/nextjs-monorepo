@@ -49,7 +49,6 @@ Useful to
 .
 ├── apps
 │   ├── blog-app
-│   ├── vite-app
 │   └── web-app
 └── packages
     ├── core-lib
