@@ -1,4 +1,7 @@
-import { PrismaManager, PrismaClientDbMain } from '@nexttop.dev/db-main-prisma';
+import {
+  getDevSafeInstance,
+  PrismaClientDbMain,
+} from '@nexttop.dev/db-main-prisma';
 import execa from 'execa';
 import type { Options as ExecaOptions } from 'execa';
 import { getAndCheckDatabaseDsn } from '../e2e-dsn-services.util';
@@ -33,7 +36,7 @@ describe('prisma cli commands', () => {
       expect(seedResult.exitCode).toStrictEqual(0);
       expect(seedResult.stdout).toMatch(/seeding finished/i);
 
-      const prisma = PrismaManager.getDevSafeInstance('test', () => {
+      const prisma = getDevSafeInstance('test', () => {
         return new PrismaClientDbMain({
           datasources: {
             db: {
