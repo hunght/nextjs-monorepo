@@ -21,6 +21,10 @@ export class PoemRepositorySsr {
         orderBy: { author: 'desc' },
       });
     } catch (e) {
+      console.log(`==== e ===`);
+      console.log(e);
+      console.log('==== end log ===');
+
       throw new InternalServerError(`Poems can't be retrieved`, e);
     }
   };
