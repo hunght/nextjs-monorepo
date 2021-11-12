@@ -51,7 +51,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
 
       # Why not using setup-node 2.2+ cache option (yet) ?
-      # see https://github.com/belgattitude/nextjs-monorepo-example/pull/369
+      # see https://github.com/hunght/nextjs-monorepo/pull/369
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
         run: echo "::set-output name=dir::$(yarn config get cacheFolder)"

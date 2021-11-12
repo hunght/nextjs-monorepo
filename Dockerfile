@@ -2,7 +2,7 @@
 # EXAMPLE OF MULTISTAGE BUILD FOR MONOREPOS
 #
 # @author Vanvelthem Sébastien (https://github.com/belgattitude)
-# @link https://github.com/belgattitude/nextjs-monorepo-example
+# @link https://github.com/hunght/nextjs-monorepo
 #
 
 ###################################################################

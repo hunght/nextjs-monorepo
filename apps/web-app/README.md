@@ -1,23 +1,23 @@
 # The web-app
 
 <p align="left">
-  <a aria-label="Build" href="https://github.com/belgattitude/nextjs-monorepo-example/actions?query=workflow%3ACI">
-    <img alt="build" src="https://img.shields.io/github/workflow/status/belgattitude/nextjs-monorepo-example/CI-web-app/main?label=CI&logo=github&style=flat-quare&labelColor=000000" />
+  <a aria-label="Build" href="https://github.com/hunght/nextjs-monorepo/actions?query=workflow%3ACI">
+    <img alt="build" src="https://img.shields.io/github/workflow/status/hunght/nextjs-monorepo/CI-web-app/main?label=CI&logo=github&style=flat-quare&labelColor=000000" />
   </a>
 </p>
 
 ## Intro
 
-Basic demo nextjs web-app, part of the [nextjs-monorepo-example](https://github.com/belgattitude/nextjs-monorepo-example).
+Basic demo nextjs web-app, part of the [nextjs-monorepo-example](https://github.com/hunght/nextjs-monorepo).
 
 - Homepage: [Demo/Vercel english](https://nextjs-monorepo-example-web-app.vercel.app/en/home) | [Demo/vercel french](https://nextjs-monorepo-example-web-app.vercel.app/fr/home)
 - API: [Demo rest/Vercel](https://nextjs-monorepo-example-web-app.vercel.app/api/rest/post/1)
-- [Changelog](https://github.com/belgattitude/nextjs-monorepo-example/blob/main/apps/web-app/CHANGELOG.md)
+- [Changelog](https://github.com/hunght/nextjs-monorepo/blob/main/apps/web-app/CHANGELOG.md)
 
 ## Quick start
 
 > For rest/api database access be sure to start `docker-compose up main-db`,
-> see detailed instructions (seeding, docker, supabase...) in the [@your-org/db-main-prisma README](https://github.com/belgattitude/nextjs-monorepo-example/blob/main/packages/db-main-prisma/README.md).
+> see detailed instructions (seeding, docker, supabase...) in the [@your-org/db-main-prisma README](https://github.com/hunght/nextjs-monorepo/blob/main/packages/db-main-prisma/README.md).
 
 ```bash
 $ yarn install
@@ -41,7 +41,7 @@ Database access for api's and server-side rendered
 
 ### Monorepo deps
 
-This app relies on packages in the monorepo, see detailed instructions in [README.md](https://github.com/belgattitude/nextjs-monorepo-example)
+This app relies on packages in the monorepo, see detailed instructions in [README.md](https://github.com/hunght/nextjs-monorepo)
 
 ```json5
 {

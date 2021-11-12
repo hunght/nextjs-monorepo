@@ -2,10 +2,10 @@
   "name": "nextjs-monorepo-example",
   "license": "MIT",
   "private": true,
-  "homepage": "https://github.com/belgattitude/nextjs-monorepo-example",
+  "homepage": "https://github.com/hunght/nextjs-monorepo",
   "repository": {
     "type": "git",
-    "url": "https://github.com/belgattitude/nextjs-monorepo-example"
+    "url": "https://github.com/hunght/nextjs-monorepo"
   },
   "author": {
     "name": "Vanvelthem Sébastien",
