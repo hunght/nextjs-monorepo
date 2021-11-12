@@ -3,10 +3,10 @@
   "version": "3.6.1",
   "license": "MIT",
   "private": true,
-  "homepage": "https://github.com/belgattitude/nextjs-monorepo-example",
+  "homepage": "https://github.com/hunght/nextjs-monorepo",
   "repository": {
     "type": "git",
-    "url": "https://github.com/belgattitude/nextjs-monorepo-example",
+    "url": "https://github.com/hunght/nextjs-monorepo",
     "directory": "packages/ui-lib"
   },
   "author": {

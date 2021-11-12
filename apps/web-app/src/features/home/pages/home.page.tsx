@@ -18,7 +18,7 @@ export const HomePage: React.FC<Props> = () => {
     <>
       <NextSeo
         title={t('home:page.title')}
-        description="See https://github.com/belgattitude/nextjs-monorepo-example"
+        description="See https://github.com/hunght/nextjs-monorepo"
       />
       <MainLayout>
         <Banner />

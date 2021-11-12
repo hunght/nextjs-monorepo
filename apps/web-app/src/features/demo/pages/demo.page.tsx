@@ -21,7 +21,7 @@ export const DemoPage: React.FC<Props> = () => {
     <>
       <NextSeo
         title={t('demo:page.title')}
-        description="Web-app nextjs monorepo example, https://github.com/belgattitude/nextjs-monorepo-example"
+        description="Web-app nextjs monorepo example, https://github.com/hunght/nextjs-monorepo"
       />
       <MainLayout>
         <Banner />

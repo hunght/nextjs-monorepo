@@ -7,7 +7,7 @@ on:
 
 jobs:
   release:
-    if: github.repository == 'belgattitude/nextjs-monorepo-example'
+    if: github.repository == 'hunght/nextjs-monorepo'
     name: Release and changelog
     runs-on: ubuntu-latest
     steps:
@@ -23,7 +23,7 @@ jobs:
           node-version: 14.x
 
       # Why not using setup-node 2.2+ cache option (yet) ?
-      # see https://github.com/belgattitude/nextjs-monorepo-example/pull/369
+      # see https://github.com/hunght/nextjs-monorepo/pull/369
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
         run: echo "::set-output name=dir::$(yarn config get cacheFolder)"

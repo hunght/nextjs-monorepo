@@ -14,7 +14,7 @@ export default function Blog({ posts }: Props) {
     <>
       <NextSeo
         title="[blog-app] nextjs-monorepo example"
-        description="See https://github.com/belgattitude/nextjs-monorepo-example"
+        description="See https://github.com/hunght/nextjs-monorepo"
       />
       <MainLayout>
         <h3>I'm the SSG blog-app</h3>
