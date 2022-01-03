@@ -154,7 +154,7 @@ export class ThreeCommasAPI {
     return await this.request('GET', 1, '/accounts/market_pairs', params);
   }
 
-  async getCurrencyRate(params: CurrencyParams) {
+  async getCurrencyRate(params: CurrencyParams): Promise<{ last: string }> {
     return await this.request('GET', 1, '/accounts/currency_rates', params);
   }
 
@@ -349,8 +349,10 @@ export class ThreeCommasAPI {
     return await this.request('GET', 1, '/bots/stats', params);
   }
 
-  async getBot(id: number) {
-    return await this.request('GET', 1, `/bots/${id}/show`);
+  async getBot(
+    id: number
+  ): Promise<{ min_volume_btc_24h: number; pairs: string[] }> {
+    return this.request('GET', 1, `/bots/${id}/show`);
   }
 
   async getDeals(
