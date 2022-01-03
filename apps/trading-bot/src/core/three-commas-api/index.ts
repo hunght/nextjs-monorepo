@@ -120,6 +120,15 @@ export class ThreeCommasAPI {
   async getTransferHistory(params: TransferHistoryParams) {
     return await this.request('GET', 1, '/accounts/transfer_history', params);
   }
+  async updateBot({
+    bot,
+    bot_id,
+  }: {
+    bot: Record<string, unknown>;
+    bot_id: number;
+  }) {
+    return await this.request('PATCH', 1, `/bots/${bot_id}/update`, { ...bot });
+  }
 
   async getTransferData() {
     return await this.request('GET', 1, '/accounts/transfer_data');
@@ -141,7 +150,7 @@ export class ThreeCommasAPI {
     return await this.request('GET', 1, '/accounts/market_list');
   }
 
-  async getMarketPairs(params?: any) {
+  async getMarketPairs(params?: { market_code: string }): Promise<string[]> {
     return await this.request('GET', 1, '/accounts/market_pairs', params);
   }
 

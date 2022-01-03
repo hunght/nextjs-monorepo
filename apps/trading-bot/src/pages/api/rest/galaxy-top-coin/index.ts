@@ -18,28 +18,53 @@ const api = new ThreeCommasAPI({
     reject(new Error(error_description ?? error));
   },
 });
+const MAX_COINS = 10;
 const LUNARCRUSH_GALAXY_TOP =
-  'https://api.lunarcrush.com/v2?data=market&type=fast&sort=gs&limit=10&key=asdf&desc=True';
+  'https://api.lunarcrush.com/v2?data=market&type=fast&sort=gs&limit=50&key=asdf&desc=True';
+const LUNARCRUSH_ALT_RANK =
+  'https://api.lunarcrush.com/v2?data=market&type=fast&sort=acr&limit=50&key=asdf';
 
+const getGalaxyTopCoins = async (): Promise<{
+  data: { data: { s: string }[] };
+}> => {
+  return axios.get(LUNARCRUSH_GALAXY_TOP);
+};
+const getAltRankCoins = async (): Promise<{
+  data: { data: { s: string }[] };
+}> => {
+  return axios.get(LUNARCRUSH_ALT_RANK);
+};
 export default async function handleListPoems(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
   if (req.method === 'GET') {
     try {
-      const { data } = await axios.get(LUNARCRUSH_GALAXY_TOP);
-      const bots = await api.getBots();
+      const { data } = await getGalaxyTopCoins();
+      const pairsToUpdate = new Set<string>();
+      // const bots = await api.getBots();
       const bot = await api.getBot(7481843);
 
       const result = await api.getMarketPairs({ market_code: 'binance' });
+      const usdtPairs = result.filter((pair) => pair.includes('USDT_'));
+      for (let index = 0; index < data.data.length; index++) {
+        const { s } = data.data[index];
+        const pair = `USDT_${s}`;
+        if (usdtPairs.includes(pair)) {
+          pairsToUpdate.add(pair);
+        }
+        if (Array.from(pairsToUpdate).length >= MAX_COINS) {
+          break;
+        }
+      }
+      const pairs = Array.from(pairsToUpdate);
 
-      console.log(`==== result ===`);
+      const updateBot = await api.updateBot({
+        bot_id: 7481843,
+        bot: { ...bot, pairs: pairs },
+      });
 
-      console.log(bot);
-      console.log(result, bots, data);
-      console.log('==== end log ===');
-
-      return res.json(bot);
+      return res.json(updateBot);
     } catch (e) {
       const apiError = JsonApiErrorFactory.fromCatchVariable(e);
       return res
