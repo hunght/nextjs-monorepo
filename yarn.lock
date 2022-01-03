@@ -5,6 +5,18 @@ __metadata:
   version: 5
   cacheKey: 8
 
+"3commas-typescript@npm:1.3.4":
+  version: 1.3.4
+  resolution: "3commas-typescript@npm:1.3.4"
+  dependencies:
+    axios: ^0.23.0
+    crypto-js: ^4.1.1
+    qs: ^6.10.1
+    ws: ^8.2.3
+  checksum: 63baa28d72ad053361f5fa060cd410727ea5a8e9be1813a26d9adbe9fc27c2b19168f561a5c6e4c13b6b4efd94277556f03f230e7c333b5b25688b100dcbd769
+  languageName: node
+  linkType: hard
+
 "@apollo/protobufjs@npm:1.2.2":
   version: 1.2.2
   resolution: "@apollo/protobufjs@npm:1.2.2"
@@ -3793,6 +3805,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/crypto-js@npm:4.1.0":
+  version: 4.1.0
+  resolution: "@types/crypto-js@npm:4.1.0"
+  checksum: ae95a6c0c3fb38925d5c574d46122eeafc1fe5a2ac2920f6d86cb41d1f53fb5cb247238952d5089bee16e2eb54eca8805ba153e3fd8756bacf8e15c8441c876d
+  languageName: node
+  linkType: hard
+
 "@types/estree@npm:*":
   version: 0.0.50
   resolution: "@types/estree@npm:0.0.50"
@@ -3960,6 +3979,13 @@ __metadata:
   version: 15.7.4
   resolution: "@types/prop-types@npm:15.7.4"
   checksum: ef6e1899e59b876c273811b1bd845022fc66d5a3d11cb38a25b6c566b30514ae38fe20a40f67622f362a4f4f7f9224e22d8da101cff3d6e97e11d7b4c307cfc1
+  languageName: node
+  linkType: hard
+
+"@types/qs@npm:6.9.7":
+  version: 6.9.7
+  resolution: "@types/qs@npm:6.9.7"
+  checksum: 7fd6f9c25053e9b5bb6bc9f9f76c1d89e6c04f7707a7ba0e44cc01f17ef5284adb82f230f542c2d5557d69407c9a40f0f3515e8319afd14e1e16b5543ac6cdba
   languageName: node
   linkType: hard
 
@@ -4867,6 +4893,15 @@ __metadata:
   dependencies:
     follow-redirects: ^1.14.4
   checksum: 468cf496c08a6aadfb7e699bebdac02851e3043d4e7d282350804ea8900e30d368daa6e3cd4ab83b8ddb5a3b1e17a5a21ada13fc9cebd27b74828f47a4236316
+  languageName: node
+  linkType: hard
+
+"axios@npm:^0.23.0":
+  version: 0.23.0
+  resolution: "axios@npm:0.23.0"
+  dependencies:
+    follow-redirects: ^1.14.4
+  checksum: 879f61022bd825da2a7ebb72410bc528683ba54c140436baa0b924b7cab02ec0919fe64a04a546f482a75f5fd570b77884f9826764a95f2fd88265e61dcb70db
   languageName: node
   linkType: hard
 
@@ -6318,6 +6353,13 @@ __metadata:
     randombytes: ^2.0.0
     randomfill: ^1.0.3
   checksum: c1609af82605474262f3eaa07daa0b2140026bd264ab316d4bf1170272570dbe02f0c49e29407fe0d3634f96c507c27a19a6765fb856fed854a625f9d15618e2
+  languageName: node
+  linkType: hard
+
+"crypto-js@npm:4.1.1, crypto-js@npm:^4.1.1":
+  version: 4.1.1
+  resolution: "crypto-js@npm:4.1.1"
+  checksum: b3747c12ee3a7632fab3b3e171ea50f78b182545f0714f6d3e7e2858385f0f4101a15f2517e033802ce9d12ba50a391575ff4638c9de3dd9b2c4bc47768d5425
   languageName: node
   linkType: hard
 
@@ -13590,6 +13632,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"qs@npm:6.10.2, qs@npm:^6.10.1":
+  version: 6.10.2
+  resolution: "qs@npm:6.10.2"
+  dependencies:
+    side-channel: ^1.0.4
+  checksum: 46fcc8f75a062524b91f9bf6b3843f346135b27d91c2a2dc3eb7ef9e34435703fd52e16d927f8864fd572d4b0ebc5a40a00649535108b8e8ea845a861b414369
+  languageName: node
+  linkType: hard
+
 "querystring-es3@npm:0.2.1":
   version: 0.2.1
   resolution: "querystring-es3@npm:0.2.1"
@@ -15743,6 +15794,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "trading-bot@workspace:apps/trading-bot"
   dependencies:
+    3commas-typescript: 1.3.4
     "@babel/core": 7.16.0
     "@emotion/babel-plugin": 11.3.0
     "@emotion/cache": 11.5.0
@@ -15771,9 +15823,11 @@ __metadata:
     "@testing-library/react-hooks": 7.0.2
     "@tsed/exceptions": 6.80.0
     "@types/cors": 2.8.12
+    "@types/crypto-js": 4.1.0
     "@types/ioredis": 4.28.1
     "@types/jest": 27.0.2
     "@types/node": 16.11.7
+    "@types/qs": 6.9.7
     "@types/react": 17.0.34
     "@types/react-dom": 17.0.11
     "@typescript-eslint/eslint-plugin": 5.3.1
@@ -15784,6 +15838,7 @@ __metadata:
     axios: 0.24.0
     cors: 2.8.5
     cross-env: 7.0.3
+    crypto-js: 4.1.1
     dotenv-flow: 3.2.0
     dotenv-flow-cli: 1.0.0
     eslint: 7.32.0
@@ -15820,6 +15875,7 @@ __metadata:
     postcss-flexbugs-fixes: 5.0.2
     postcss-preset-env: 6.7.0
     prettier: 2.4.1
+    qs: 6.10.2
     react: 17.0.2
     react-dom: 17.0.2
     react-i18next: 11.14.2
@@ -16811,6 +16867,21 @@ __metadata:
     utf-8-validate:
       optional: true
   checksum: bd2b437256012af526c69c03d6670a132e7ab0fe5853f3b7092826acea4203fad4ee2a8d0d9bd44834b2b968e747bf34f753ab535f4a3edf40d262da4b1d0805
+  languageName: node
+  linkType: hard
+
+"ws@npm:^8.2.3":
+  version: 8.4.0
+  resolution: "ws@npm:8.4.0"
+  peerDependencies:
+    bufferutil: ^4.0.1
+    utf-8-validate: ^5.0.2
+  peerDependenciesMeta:
+    bufferutil:
+      optional: true
+    utf-8-validate:
+      optional: true
+  checksum: 5e37ccf0ecb8d8019d88b07af079e8f74248b688ad3109ab57cd5e1c9a7392545f572914d0c27f25e8b83a6cfc09a89ac151c556ff4fae26d6f824077e4f8239
   languageName: node
   linkType: hard
 
