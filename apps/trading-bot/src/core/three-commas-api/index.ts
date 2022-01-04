@@ -25,6 +25,12 @@ const ENDPOINT = 'https://api.3commas.io';
 const V1 = '/public/api/ver1';
 const V2 = '/public/api/v2';
 
+export type Bot = {
+  min_volume_btc_24h: number;
+  pairs: string[];
+  id: number;
+};
+
 export class ThreeCommasAPI {
   private readonly KEY: string;
   private readonly SECRETS: string;
@@ -120,14 +126,8 @@ export class ThreeCommasAPI {
   async getTransferHistory(params: TransferHistoryParams) {
     return await this.request('GET', 1, '/accounts/transfer_history', params);
   }
-  async updateBot({
-    bot,
-    bot_id,
-  }: {
-    bot: Record<string, unknown>;
-    bot_id: number;
-  }) {
-    return await this.request('PATCH', 1, `/bots/${bot_id}/update`, { ...bot });
+  async updateBot({ bot }: { bot: Bot }) {
+    return await this.request('PATCH', 1, `/bots/${bot.id}/update`, { ...bot });
   }
 
   async getTransferData() {
@@ -349,9 +349,7 @@ export class ThreeCommasAPI {
     return await this.request('GET', 1, '/bots/stats', params);
   }
 
-  async getBot(
-    id: number
-  ): Promise<{ min_volume_btc_24h: number; pairs: string[] }> {
+  async getBot(id: number): Promise<Bot> {
     return this.request('GET', 1, `/bots/${id}/show`);
   }
 
