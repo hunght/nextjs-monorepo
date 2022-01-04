@@ -21,9 +21,13 @@ export default async function handleListPoems(
       const updateBot = await threeCommasAPI.updateBot({
         bot: { ...bot, pairs: pairs },
       });
-      slackClient.chat.postMessage({
+      await slackClient.chat.postMessage({
         channel: channelId,
-        text: updateBot,
+        text: `
+        ==== start log ===
+        ${JSON.stringify(updateBot.pairs)}
+        ==== end log ===
+        `,
       });
       return res.json(updateBot);
     } catch (e) {
