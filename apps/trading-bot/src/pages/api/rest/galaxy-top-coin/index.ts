@@ -4,6 +4,7 @@ import { MethodNotAllowed } from '@tsed/exceptions';
 
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { getGalaxyTopCoins } from '@/backend/api/rest/galaxy-top-coin';
+import { channelId, slackClient } from '@/backend/api/slack';
 import { threeCommasAPI } from '@/backend/api/three-commas';
 import { BOT_ID } from '@/config/galaxy-top-coin';
 
@@ -20,7 +21,10 @@ export default async function handleListPoems(
       const updateBot = await threeCommasAPI.updateBot({
         bot: { ...bot, pairs: pairs },
       });
-
+      await slackClient.chat.postMessage({
+        channel: channelId,
+        text: updateBot,
+      });
       return res.json(updateBot);
     } catch (e) {
       const apiError = JsonApiErrorFactory.fromCatchVariable(e);
