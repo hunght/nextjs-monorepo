@@ -38,6 +38,12 @@ export const getGalaxyTopCoins = async ({
   const result = await threeCommasAPI.getMarketPairs({
     market_code: 'binance',
   });
+
+  const { pairs: blackListPairs } = await threeCommasAPI.getBlackListPairs();
+  console.log(`==== blackListPairs ===`);
+  console.log(blackListPairs);
+  console.log('==== end log ===');
+
   const usdtPairs = result.filter((pair) => pair.includes('USDT_'));
   for (let index = 0; index < data.data.length; index++) {
     const item = data.data[index];
@@ -52,6 +58,11 @@ export const getGalaxyTopCoins = async ({
       console.log(
         `Quote currency ${pair} does not have enough 24h BTC volume (${volbtc}), skipping`
       );
+      continue;
+    }
+
+    if (blackListPairs.includes(pair)) {
+      console.log(`Quote currency ${pair} is in BlackList Pairs, skipping`);
       continue;
     }
 

@@ -126,6 +126,11 @@ export class ThreeCommasAPI {
   async getTransferHistory(params: TransferHistoryParams) {
     return await this.request('GET', 1, '/accounts/transfer_history', params);
   }
+
+  async getBlackListPairs(): Promise<{ pairs: string[] }> {
+    return await this.request('GET', 1, '/bots/pairs_black_list');
+  }
+
   async updateBot({ bot }: { bot: Bot }) {
     return await this.request('PATCH', 1, `/bots/${bot.id}/update`, { ...bot });
   }
