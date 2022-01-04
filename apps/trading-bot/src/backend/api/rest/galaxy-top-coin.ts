@@ -40,9 +40,6 @@ export const getGalaxyTopCoins = async ({
   });
 
   const { pairs: blackListPairs } = await threeCommasAPI.getBlackListPairs();
-  console.log(`==== blackListPairs ===`);
-  console.log(blackListPairs);
-  console.log('==== end log ===');
 
   const usdtPairs = result.filter((pair) => pair.includes('USDT_'));
   for (let index = 0; index < data.data.length; index++) {
