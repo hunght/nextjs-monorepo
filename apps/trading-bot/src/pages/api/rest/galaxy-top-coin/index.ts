@@ -13,10 +13,11 @@ export default async function handleListPoems(
   res: NextApiResponse
 ) {
   if (req.method === 'GET') {
+    const bot = await threeCommasAPI.getBot(BOT_ID);
     try {
-      const bot = await threeCommasAPI.getBot(BOT_ID);
       const minvolume = bot.min_volume_btc_24h ?? 0;
-      const pairs = await getGalaxyTopCoins({ minvolume });
+
+      const { data: pairs } = await getGalaxyTopCoins({ minvolume });
 
       const updateBot = await threeCommasAPI.updateBot({
         bot: { ...bot, pairs: pairs },
@@ -31,10 +32,20 @@ export default async function handleListPoems(
       });
       return res.json(updateBot);
     } catch (e) {
+      await threeCommasAPI.disableBot(bot.id);
+      await slackClient.chat.postMessage({
+        channel: channelId,
+        text: `
+        ==== start log ===
+        Disabled bot name: ${bot.name}
+        ==== end log ===
+        `,
+      });
       const apiError = JsonApiErrorFactory.fromCatchVariable(e);
-      return res
-        .status(apiError.status ?? 500)
-        .json(JsonApiResponseFactory.fromError(apiError));
+      return res.status(apiError.status ?? 500).json({
+        message: 'disabled trade bot',
+        apiError: JsonApiResponseFactory.fromError(apiError),
+      });
     }
   } else {
     return res

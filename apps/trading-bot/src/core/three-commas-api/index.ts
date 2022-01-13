@@ -29,6 +29,7 @@ export type Bot = {
   min_volume_btc_24h: number;
   pairs: string[];
   id: number;
+  name: string;
 };
 
 export class ThreeCommasAPI {
@@ -133,6 +134,12 @@ export class ThreeCommasAPI {
 
   async updateBot({ bot }: { bot: Bot }) {
     return await this.request('PATCH', 1, `/bots/${bot.id}/update`, { ...bot });
+  }
+
+  async disableBot(botId: number) {
+    return await this.request('POST', 1, `/bots/${botId}/disable`, {
+      bot_id: botId,
+    });
   }
 
   async getTransferData() {
