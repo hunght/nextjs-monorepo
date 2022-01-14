@@ -1,3 +1,4 @@
+import { captureException } from '@sentry/nextjs';
 import axios from 'axios';
 import { threeCommasAPI } from '../three-commas';
 import { LUNARCRUSH_API_KEY } from '@/config/env';
@@ -81,6 +82,7 @@ export const getGalaxyTopCoins = async ({
     }
     return { success: true, data: Array.from(pairsToUpdate) };
   } catch (error) {
+    captureException(error);
     throw new Error('Lunarcrush api crash');
   }
 };
