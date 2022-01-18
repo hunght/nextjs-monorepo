@@ -19,6 +19,9 @@ export default async function handleListPoems(
       const minvolume = bot.min_volume_btc_24h ?? 0;
 
       const { data: pairs } = await getGalaxyTopCoins({ minvolume });
+      console.log(`==== pairs ===`);
+      console.log(pairs);
+      console.log('==== end log ===');
 
       const updateBot = await threeCommasAPI.updateBot({
         bot: { ...bot, pairs: pairs },
