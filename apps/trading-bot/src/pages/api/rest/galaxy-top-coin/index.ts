@@ -1,6 +1,5 @@
 import { JsonApiResponseFactory } from '@nexttop.dev/core-lib/api/json-api';
 import { JsonApiErrorFactory } from '@nexttop.dev/core-lib/api/json-api/json-api-error.factory';
-import { captureException } from '@sentry/nextjs';
 import { MethodNotAllowed } from '@tsed/exceptions';
 
 import type { NextApiRequest, NextApiResponse } from 'next';
@@ -36,7 +35,6 @@ export default async function handleListPoems(
       });
       return res.json(updateBot);
     } catch (e) {
-      captureException(e);
       await threeCommasAPI.disableBot(bot.id);
       await slackClient.chat.postMessage({
         channel: channelId,

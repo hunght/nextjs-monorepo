@@ -121,7 +121,6 @@
     "@nexttop.dev/db-main-prisma": "workspace:*",
     "@nexttop.dev/ui-lib": "workspace:*",
     "@sentry/browser": "6.14.3",
-    "@sentry/nextjs": "6.16.1",
     "@sentry/node": "6.14.3",
     "@slack/web-api": "6.5.1",
     "@soluble/cache-ioredis": "0.8.2",

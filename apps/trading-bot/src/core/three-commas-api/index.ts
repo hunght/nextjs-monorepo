@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { captureException } from '@sentry/nextjs';
 import type { AxiosError, AxiosInstance } from 'axios';
 import Axios from 'axios';
 import qs from 'qs';
@@ -55,24 +54,8 @@ export class ThreeCommasAPI {
         ...(options?.forcedMode && { 'Forced-Mode': options?.forcedMode }),
       },
     });
-    this.axios.interceptors.response.use(
-      async (response) => {
-        console.log('==== Starting Response ===');
-        console.log(response);
-        console.log('==== end response log ===');
-
-        return response;
-      },
-      (err) => {
-        captureException(err);
-        Promise.reject(err);
-      }
-    );
     this.axios.interceptors.request.use(
       (config) => {
-        console.log('==== Starting Request ===');
-        console.log(config);
-        console.log('==== end request log ===');
         let data = {
           ...config.data,
           api_key: this.KEY,
@@ -89,7 +72,6 @@ export class ThreeCommasAPI {
         const signature = this.SECRETS
           ? sign(this.SECRETS, relativeUrl, payload)
           : '';
-
         return {
           ...config,
           data,
@@ -100,7 +82,6 @@ export class ThreeCommasAPI {
         };
       },
       (error) => {
-        captureException(error);
         return Promise.reject(error);
       }
     );
