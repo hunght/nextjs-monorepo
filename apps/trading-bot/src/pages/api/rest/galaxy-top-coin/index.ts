@@ -14,14 +14,12 @@ export default async function handleListPoems(
 ) {
   if (req.method === 'GET') {
     const bot = await threeCommasAPI.getBot(BOT_ID);
+    let updatePairs: string[] = [];
     try {
       const minvolume = bot.min_volume_btc_24h ?? 0;
 
       const { data: pairs } = await getGalaxyTopCoins({ minvolume });
-      console.log(`==== pairs ===`);
-      console.log(pairs);
-      console.log('==== end log ===');
-
+      updatePairs = pairs;
       const updateBot = await threeCommasAPI.updateBot({
         bot: { ...bot, pairs: pairs },
       });
@@ -35,12 +33,13 @@ export default async function handleListPoems(
       });
       return res.json(updateBot);
     } catch (e) {
-      await threeCommasAPI.disableBot(bot.id);
+      // await threeCommasAPI.disableBot(bot.id);
       await slackClient.chat.postMessage({
         channel: channelId,
         text: `
         ==== start log ===
         Disabled bot name: ${bot.name}
+        Pairs: ${updatePairs}
         ==== end log ===
         `,
       });

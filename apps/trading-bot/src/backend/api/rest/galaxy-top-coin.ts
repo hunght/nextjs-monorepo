@@ -7,7 +7,7 @@ import {
   MAX_COINS,
 } from '@/config/galaxy-top-coin';
 
-export const fetchGalaxyTopCoins = async (): Promise<{
+const fetchGalaxyTopCoins = async (): Promise<{
   data: { data: { s: string; acr: number; v: number }[] };
 }> => {
   const params = {
