@@ -7,6 +7,9 @@ import {
   MAX_COINS,
 } from '@/config/galaxy-top-coin';
 
+const MARKET_CODE = 'binance';
+const CURRENCY_PAIR_DEFAULT = 'USDT_BTC';
+
 const fetchGalaxyTopCoins = async (): Promise<{
   data: { data: { s: string; acr: number; v: number }[] };
 }> => {
@@ -32,12 +35,12 @@ export const getGalaxyTopCoins = async ({
     const { data } = await fetchGalaxyTopCoins();
 
     const { last } = await threeCommasAPI.getCurrencyRate({
-      market_code: 'binance',
-      pair: 'USDT_BTC',
+      market_code: MARKET_CODE,
+      pair: CURRENCY_PAIR_DEFAULT,
     });
 
     const result = await threeCommasAPI.getMarketPairs({
-      market_code: 'binance',
+      market_code: MARKET_CODE,
     });
 
     const { pairs: blackListPairs } = await threeCommasAPI.getBlackListPairs();

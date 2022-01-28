@@ -39,7 +39,7 @@ export default async function handleListPoems(
         text: `
         ==== start log ===
         Disabled bot name: ${bot.name}
-        Pairs: ${updatePairs}
+        Pairs: ${JSON.stringify(updatePairs)}
         ==== end log ===
         `,
       });
