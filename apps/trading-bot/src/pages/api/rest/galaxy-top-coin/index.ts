@@ -6,7 +6,7 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 import { getGalaxyTopCoins } from '@/backend/api/rest/galaxy-top-coin';
 import { channelId, slackClient } from '@/backend/api/slack';
 import { threeCommasAPI } from '@/backend/api/three-commas';
-import { BOT_ID, MAX_COINS } from '@/config/galaxy-top-coin';
+import { BOT_ID } from '@/config/galaxy-top-coin';
 
 export default async function handleListPoems(
   req: NextApiRequest,
@@ -18,9 +18,12 @@ export default async function handleListPoems(
     try {
       const minvolume = bot.min_volume_btc_24h ?? 0;
 
-      const { data: pairs } = await getGalaxyTopCoins({ minvolume });
+      const { data: pairs } = await getGalaxyTopCoins({
+        minvolume,
+        maxActiveDeals: bot.max_active_deals,
+      });
       updatePairs = pairs;
-      if (pairs.length < MAX_COINS) {
+      if (pairs.length < bot.max_active_deals) {
         await threeCommasAPI.disableBot(bot.id);
         await slackClient.chat.postMessage({
           channel: channelId,

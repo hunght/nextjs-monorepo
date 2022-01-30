@@ -31,6 +31,7 @@ export type Bot = {
   id: number;
   name: string;
   is_enabled: boolean;
+  max_active_deals: number;
 };
 
 export class ThreeCommasAPI {
