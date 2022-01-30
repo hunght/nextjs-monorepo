@@ -6,7 +6,7 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 import { getGalaxyTopCoins } from '@/backend/api/rest/galaxy-top-coin';
 import { channelId, slackClient } from '@/backend/api/slack';
 import { threeCommasAPI } from '@/backend/api/three-commas';
-import { BOT_ID } from '@/config/galaxy-top-coin';
+import { BOT_ID, MAX_COINS } from '@/config/galaxy-top-coin';
 
 export default async function handleListPoems(
   req: NextApiRequest,
@@ -20,6 +20,25 @@ export default async function handleListPoems(
 
       const { data: pairs } = await getGalaxyTopCoins({ minvolume });
       updatePairs = pairs;
+      if (pairs.length < MAX_COINS) {
+        await threeCommasAPI.disableBot(bot.id);
+        await slackClient.chat.postMessage({
+          channel: channelId,
+          text: `
+        ==== start log ===
+        Disabled bot name: ${bot.name}
+        Pairs: ${JSON.stringify(updatePairs)}
+        ==== end log ===
+        `,
+        });
+        return res.status(500).json({
+          message: 'disabled trade bot',
+          apiError: JsonApiResponseFactory.fromError('apiError'),
+        });
+      }
+      if (!bot.is_enabled) {
+        await threeCommasAPI.enableBot(bot.id);
+      }
       const updateBot = await threeCommasAPI.updateBot({
         bot: { ...bot, pairs: pairs },
       });
@@ -33,7 +52,7 @@ export default async function handleListPoems(
       });
       return res.json(updateBot);
     } catch (e) {
-      // await threeCommasAPI.disableBot(bot.id);
+      await threeCommasAPI.disableBot(bot.id);
       await slackClient.chat.postMessage({
         channel: channelId,
         text: `

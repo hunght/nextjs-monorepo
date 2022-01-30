@@ -30,6 +30,7 @@ export type Bot = {
   pairs: string[];
   id: number;
   name: string;
+  is_enabled: boolean;
 };
 
 export class ThreeCommasAPI {
@@ -138,6 +139,12 @@ export class ThreeCommasAPI {
 
   async disableBot(botId: number) {
     return await this.request('POST', 1, `/bots/${botId}/disable`, {
+      bot_id: botId,
+    });
+  }
+
+  async enableBot(botId: number) {
+    return await this.request('POST', 1, `/bots/${botId}/enable`, {
       bot_id: botId,
     });
   }

@@ -17,7 +17,7 @@ const fetchGalaxyTopCoins = async (): Promise<{
     data: 'market',
     type: 'fast',
     sort: 'gs',
-    limit: 100,
+    limit: MAX_ACR_SCORE,
     key: LUNARCRUSH_API_KEY,
     desc: true,
   };
