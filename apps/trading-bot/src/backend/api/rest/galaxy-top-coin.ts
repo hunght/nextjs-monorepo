@@ -4,9 +4,9 @@ import { LUNARCRUSH_API_KEY } from '@/config/env';
 import {
   LUNARCRUSH_GALAXY_TOP,
   MAX_ALT_RANK_SCORE,
+  MAX_COINS,
   MAX_GALAXY_SCORE,
 } from '@/config/galaxy-top-coin';
-
 const MARKET_CODE = 'binance';
 const CURRENCY_PAIR_DEFAULT = 'USDT_BTC';
 
@@ -34,10 +34,8 @@ const fetchGalaxyTopCoins = async (): Promise<{
 
 export const getGalaxyTopCoins = async ({
   minvolume,
-  maxActiveDeals,
 }: {
   minvolume: number;
-  maxActiveDeals: number;
 }): Promise<{ data: string[]; success: boolean }> => {
   try {
     const { data } = await fetchGalaxyTopCoins();
@@ -61,7 +59,6 @@ export const getGalaxyTopCoins = async ({
       blackListPairs,
       usdtPairs,
       minvolume,
-      maxActiveDeals,
     });
     return { success: true, data: pairsToUpdate };
   } catch (error) {
@@ -75,14 +72,12 @@ const getPairsToUpdate = ({
   blackListPairs,
   usdtPairs,
   minvolume,
-  maxActiveDeals,
 }: {
   coins: Coin[];
   last: string;
   blackListPairs: string[];
   usdtPairs: string[];
   minvolume: number;
-  maxActiveDeals: number;
 }): string[] => {
   const pairsToUpdate = new Set<string>();
   for (let index = 0; index < coins.length; index++) {
@@ -124,7 +119,7 @@ const getPairsToUpdate = ({
     if (usdtPairs.includes(pair)) {
       pairsToUpdate.add(pair);
     }
-    if (Array.from(pairsToUpdate).length >= maxActiveDeals) {
+    if (Array.from(pairsToUpdate).length >= MAX_COINS) {
       break;
     }
   }

@@ -8,7 +8,7 @@ import { channelId, slackClient } from '@/backend/api/slack';
 import { threeCommasAPI } from '@/backend/api/three-commas';
 import { BOT_ID } from '@/config/galaxy-top-coin';
 
-export default async function handleListPoems(
+export default async function galaxyTopCoin(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
