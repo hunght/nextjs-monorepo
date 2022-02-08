@@ -20,7 +20,6 @@ export default async function galaxyTopCoin(
 
       const { data: pairs } = await getGalaxyTopCoins({
         minvolume,
-        maxActiveDeals: bot.max_active_deals,
       });
       updatePairs = pairs;
       if (pairs.length < bot.max_active_deals) {
