@@ -1,12 +1,11 @@
 import axios from 'axios';
 import { threeCommasAPI } from '../three-commas';
-import { LUNARCRUSH_API_KEY } from '@/config/env';
 import {
-  LUNARCRUSH_GALAXY_TOP,
   MAX_ALT_RANK_SCORE,
   MAX_COINS,
   MAX_GALAXY_SCORE,
-} from '@/config/galaxy-top-coin';
+} from '@/config/altrank-top-coin';
+import { LUNARCRUSH_API_KEY, LUNARCRUSH_URL } from '@/config/env';
 const MARKET_CODE = 'binance';
 const CURRENCY_PAIR_DEFAULT = 'USDT_BTC';
 
@@ -17,28 +16,27 @@ type Coin = {
   gs: number;
 };
 
-const fetchGalaxyTopCoins = async (): Promise<{
+const fetchAltRankTopCoins = async (): Promise<{
   data: { data: Coin[] };
 }> => {
   const params = {
     data: 'market',
     type: 'fast',
-    sort: 'gs',
+    sort: 'acr',
     limit: MAX_ALT_RANK_SCORE,
     key: LUNARCRUSH_API_KEY,
-    desc: true,
   };
 
-  return axios.get(LUNARCRUSH_GALAXY_TOP, { params });
+  return axios.get(LUNARCRUSH_URL, { params });
 };
 
-export const getGalaxyTopCoins = async ({
+export const getAltRankTopCoins = async ({
   minvolume,
 }: {
   minvolume: number;
 }): Promise<{ data: string[]; success: boolean }> => {
   try {
-    const { data } = await fetchGalaxyTopCoins();
+    const { data } = await fetchAltRankTopCoins();
 
     const { last } = await threeCommasAPI.getCurrencyRate({
       market_code: MARKET_CODE,
@@ -111,7 +109,7 @@ const getPairsToUpdate = ({
 
     if (item.gs <= MAX_GALAXY_SCORE) {
       console.log(
-        `Quote currency ${pair} is not in GALAXY score basic ${MAX_GALAXY_SCORE} (${item.gs}), skipping`
+        `Quote currency ${pair} is not in ALTRANK score basic ${MAX_GALAXY_SCORE} (${item.gs}), skipping`
       );
       continue;
     }
