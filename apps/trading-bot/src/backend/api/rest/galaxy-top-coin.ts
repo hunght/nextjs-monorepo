@@ -6,6 +6,7 @@ import {
   MAX_ALT_RANK_SCORE,
   MAX_COINS,
   MAX_GALAXY_SCORE,
+  COIN_LIMIT,
 } from '@/config/galaxy-top-coin';
 const MARKET_CODE = 'binance';
 const CURRENCY_PAIR_DEFAULT = 'USDT_BTC';
@@ -24,7 +25,7 @@ const fetchGalaxyTopCoins = async (): Promise<{
     data: 'market',
     type: 'fast',
     sort: 'gs',
-    limit: MAX_ALT_RANK_SCORE,
+    limit: COIN_LIMIT,
     key: LUNARCRUSH_API_KEY,
     desc: true,
   };

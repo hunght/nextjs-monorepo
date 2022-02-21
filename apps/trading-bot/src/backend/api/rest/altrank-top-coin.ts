@@ -4,8 +4,10 @@ import {
   MAX_ALT_RANK_SCORE,
   MAX_COINS,
   MAX_GALAXY_SCORE,
+  COIN_LIMIT,
 } from '@/config/altrank-top-coin';
 import { LUNARCRUSH_API_KEY, LUNARCRUSH_URL } from '@/config/env';
+
 const MARKET_CODE = 'binance';
 const CURRENCY_PAIR_DEFAULT = 'USDT_BTC';
 
@@ -23,7 +25,7 @@ const fetchAltRankTopCoins = async (): Promise<{
     data: 'market',
     type: 'fast',
     sort: 'acr',
-    limit: MAX_ALT_RANK_SCORE,
+    limit: COIN_LIMIT,
     key: LUNARCRUSH_API_KEY,
   };
 

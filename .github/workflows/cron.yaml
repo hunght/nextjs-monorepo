@@ -9,5 +9,5 @@ jobs:
       - name: Call our API route
         run: |
           curl --request GET \
-          --url 'https://www.nexttradingbot.com/api/rest/altrank-top-coin' \
+          --url 'https://www.nexttradingbot.com/api/rest/galaxy-top-coin' \
           --header 'Authorization: Bearer ${{ secrets.THREE_COMMAS_SECRET_KEY }}'
