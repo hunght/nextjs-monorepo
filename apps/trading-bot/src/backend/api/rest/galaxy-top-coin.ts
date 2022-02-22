@@ -5,7 +5,6 @@ import {
   LUNARCRUSH_GALAXY_TOP,
   MAX_ALT_RANK_SCORE,
   MAX_COINS,
-  MAX_GALAXY_SCORE,
   COIN_LIMIT,
 } from '@/config/galaxy-top-coin';
 const MARKET_CODE = 'binance';
@@ -106,13 +105,6 @@ const getPairsToUpdate = ({
     if (acrscore >= MAX_ALT_RANK_SCORE) {
       console.log(
         `Quote currency ${pair} is not in AltRank score top ${MAX_ALT_RANK_SCORE} (${acrscore}), skipping`
-      );
-      continue;
-    }
-
-    if (item.gs <= MAX_GALAXY_SCORE) {
-      console.log(
-        `Quote currency ${pair} is not in GALAXY score basic ${MAX_GALAXY_SCORE} (${item.gs}), skipping`
       );
       continue;
     }
