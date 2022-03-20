@@ -74,53 +74,7 @@ export const HeroBlock: React.FC<Props> = () => {
                   </nav>
                 </div>
 
-                <Transition
-                  show={open}
-                  as={Fragment}
-                  enter="duration-150 ease-out"
-                  enterFrom="opacity-0 scale-95"
-                  enterTo="opacity-100 scale-100"
-                  leave="duration-100 ease-in"
-                  leaveFrom="opacity-100 scale-100"
-                  leaveTo="opacity-0 scale-95">
-                  <Popover.Panel
-                    focus
-                    static
-                    className="md:hidden absolute inset-x-0 top-0 p-2 transition transform origin-top-right">
-                    <div className="overflow-hidden bg-white rounded-lg ring-1 ring-black ring-opacity-5 shadow-md">
-                      <div className="flex justify-between items-center px-5 pt-4">
-                        <div>
-                          <img
-                            className="w-auto h-8"
-                            src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
-                            alt=""
-                          />
-                        </div>
-                        <div className="-mr-2">
-                          <Popover.Button className="inline-flex justify-center items-center p-2 text-gray-400 hover:text-gray-500 bg-white hover:bg-gray-100 rounded-md focus:ring-2 focus:ring-inset focus:ring-indigo-500 focus:outline-none">
-                            <span className="sr-only">Close main menu</span>
-                            <Close className="w-6 h-6" aria-hidden="true" />
-                          </Popover.Button>
-                        </div>
-                      </div>
-                      <div className="px-2 pt-2 pb-3 space-y-1">
-                        {navigation.map((item) => (
-                          <a
-                            key={item.name}
-                            href={item.href}
-                            className="block py-2 px-3 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 rounded-md">
-                            {item.name}
-                          </a>
-                        ))}
-                      </div>
-                      <a
-                        href="#"
-                        className="block py-3 px-5 w-full font-medium text-center text-indigo-600 bg-gray-50 hover:bg-gray-100">
-                        Log in
-                      </a>
-                    </div>
-                  </Popover.Panel>
-                </Transition>
+                {renderSideMenu(open)}
               </>
             )}
           </Popover>
@@ -169,3 +123,56 @@ export const HeroBlock: React.FC<Props> = () => {
     </div>
   );
 };
+
+function renderSideMenu(open: boolean) {
+  return (
+    <Transition
+      component="div"
+      show={open}
+      as={Fragment}
+      enter="duration-150 ease-out"
+      enterFrom="opacity-0 scale-95"
+      enterTo="opacity-100 scale-100"
+      leave="duration-100 ease-in"
+      leaveFrom="opacity-100 scale-100"
+      leaveTo="opacity-0 scale-95">
+      <Popover.Panel
+        focus
+        static
+        className="md:hidden absolute inset-x-0 top-0 p-2 transition transform origin-top-right">
+        <div className="overflow-hidden bg-white rounded-lg ring-1 ring-black ring-opacity-5 shadow-md">
+          <div className="flex justify-between items-center px-5 pt-4">
+            <div>
+              <img
+                className="w-auto h-8"
+                src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
+                alt=""
+              />
+            </div>
+            <div className="-mr-2">
+              <Popover.Button className="inline-flex justify-center items-center p-2 text-gray-400 hover:text-gray-500 bg-white hover:bg-gray-100 rounded-md focus:ring-2 focus:ring-inset focus:ring-indigo-500 focus:outline-none">
+                <span className="sr-only">Close main menu</span>
+                <Close className="w-6 h-6" aria-hidden="true" />
+              </Popover.Button>
+            </div>
+          </div>
+          <div className="px-2 pt-2 pb-3 space-y-1">
+            {navigation.map((item) => (
+              <a
+                key={item.name}
+                href={item.href}
+                className="block py-2 px-3 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 rounded-md">
+                {item.name}
+              </a>
+            ))}
+          </div>
+          <a
+            href="#"
+            className="block py-3 px-5 w-full font-medium text-center text-indigo-600 bg-gray-50 hover:bg-gray-100">
+            Log in
+          </a>
+        </div>
+      </Popover.Panel>
+    </Transition>
+  );
+}

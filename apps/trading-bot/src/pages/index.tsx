@@ -2,7 +2,7 @@ import { BadRequest } from '@tsed/exceptions';
 import type { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { demoConfig } from '@/features/demo/demo.config';
-import { DemoPage } from '@/features/demo/pages/demo.page';
+import { DashBoardPage } from '@/features/demo/pages/dashboard';
 
 type Props = {
   /** Add HomeRoute props here */
@@ -11,7 +11,7 @@ type Props = {
 export default function DemoRoute(
   _props: InferGetStaticPropsType<typeof getStaticProps>
 ) {
-  return <DemoPage />;
+  return <DashBoardPage />;
 }
 
 export const getStaticProps: GetStaticProps<Props> = async (context) => {
