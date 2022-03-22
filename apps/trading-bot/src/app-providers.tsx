@@ -1,8 +1,8 @@
 import type { EmotionCache } from '@emotion/react';
 import { CacheProvider } from '@emotion/react';
 import { ThemeProvider as MuiThemeProvider } from '@mui/material';
-import type { FC } from 'react';
 
+import type { FC } from 'react';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { createEmotionCache } from '@/core/nextjs/create-emotion-cache';
 import { muiTheme } from '@/themes/mui/mui.theme';

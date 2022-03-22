@@ -1,10 +1,18 @@
 import { Speaker as SpeakerIcon, Close as XIcon } from '@mui/icons-material';
+import { signIn, useSession } from 'next-auth/react';
+import { useState } from 'react';
 
 type Props = {
   children?: never;
 };
 
 export const Banner: React.FC<Props> = () => {
+  const { data: session, status } = useSession();
+  const [show, setShow] = useState(true);
+  const loading = status === 'loading';
+  if (loading || session || !show) {
+    return <div />;
+  }
   return (
     <div className="bg-indigo-600">
       <div className="py-3 px-3 sm:px-6 lg:px-8 mx-auto max-w-7xl">
@@ -22,14 +30,21 @@ export const Banner: React.FC<Props> = () => {
           </div>
           <div className="flex-shrink-0 order-3 sm:order-2 mt-2 sm:mt-0 w-full sm:w-auto">
             <a
-              href="#"
+              href={`/api/auth/signin`}
+              onClick={(e) => {
+                e.preventDefault();
+                signIn();
+              }}
               className="flex justify-center items-center py-2 px-4 text-sm font-medium text-indigo-600 bg-white hover:bg-indigo-50 rounded-md border border-transparent shadow-sm">
-              Learn more
+              Sign in
             </a>
           </div>
           <div className="flex-shrink-0 order-2 sm:order-3 sm:ml-3">
             <button
               type="button"
+              onClick={() => {
+                setShow(false);
+              }}
               className="flex p-2 -mr-1 sm:-mr-2 hover:bg-indigo-500 rounded-md focus:ring-2 focus:ring-white focus:outline-none">
               <span className="sr-only">Dismiss</span>
               <XIcon className="w-6 h-6 text-white" aria-hidden="true" />
