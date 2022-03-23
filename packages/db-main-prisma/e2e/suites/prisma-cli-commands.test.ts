@@ -46,7 +46,6 @@ describe('prisma cli commands', () => {
         });
       });
 
-      const poetry = await prisma.poem.findFirst();
       expect(poetry).toBeDefined();
     });
   });

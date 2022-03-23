@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { threeCommasAPI } from '../three-commas';
 import { LUNARCRUSH_API_KEY } from '@/config/env';
 import {
   LUNARCRUSH_GALAXY_TOP,
@@ -7,6 +6,7 @@ import {
   MAX_COINS,
   COIN_LIMIT,
 } from '@/config/galaxy-top-coin';
+import { threeCommasAPI } from '../three-commas';
 const MARKET_CODE = 'binance';
 const CURRENCY_PAIR_DEFAULT = 'USDT_BTC';
 

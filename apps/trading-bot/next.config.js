@@ -96,7 +96,7 @@ const nextConfig = {
   },
   future: {
     // @link https://github.com/vercel/next.js/pull/20914
-    strictPostcssConfiguration: true,
+    webpack5: false,
   },
 
   // @link https://nextjs.org/docs/basic-features/image-optimization
