@@ -1,14 +1,14 @@
 import { BadRequest } from '@tsed/exceptions';
 import type { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import { demoConfig } from '@/features/demo/demo.config';
-import { DashBoardPage } from '@/features/demo/pages/dashboard';
+import { dashboardConfig } from '@/features/dashboard/dashboard.config';
+import { DashBoardPage } from '@/features/dashboard/pages/dashboard';
 
 type Props = {
   /** Add HomeRoute props here */
 };
 
-export default function DemoRoute(
+export default function DashBoardRoute(
   _props: InferGetStaticPropsType<typeof getStaticProps>
 ) {
   return <DashBoardPage />;
@@ -19,7 +19,7 @@ export const getStaticProps: GetStaticProps<Props> = async (context) => {
   if (locale === undefined) {
     throw new BadRequest('locale is missing');
   }
-  const { i18nNamespaces } = demoConfig;
+  const { i18nNamespaces } = dashboardConfig;
   return {
     props: {
       ...(await serverSideTranslations(locale, i18nNamespaces.slice())),

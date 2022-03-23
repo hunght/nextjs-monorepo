@@ -6,19 +6,19 @@ import AppBarMenu from '@/components/app-bar-menu';
 import { Banner } from '@/components/banner';
 import { MainLayout } from '@/components/layout/main-layout';
 import BotTableBlock from '../blocks/bot-table';
-import { demoConfig } from '../demo.config';
+import { dashboardConfig } from '../dashboard.config';
 
 type Props = {
   children?: never;
 };
 
 export const DashBoardPage: React.FC<Props> = () => {
-  const { t } = useTranslation(demoConfig.i18nNamespaces);
+  const { t } = useTranslation(dashboardConfig.i18nNamespaces);
 
   return (
     <>
       <NextSeo
-        title={t('demo:page.title')}
+        title={t('dashboard:page.title')}
         description="trading-bot nextjs monorepo example, https://github.com/hunght/nextjs-monorepo"
       />
       <MainLayout>
