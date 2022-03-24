@@ -4,9 +4,6 @@ import { getSession } from 'next-auth/react';
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   const session = await getSession({ req });
-  console.log(`==== session ===`);
-  console.log(session);
-  console.log('==== end log ===');
 
   if (session) {
     res.send({

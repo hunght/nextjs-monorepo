@@ -1,5 +1,6 @@
 import { BadRequest } from '@tsed/exceptions';
 import type { GetStaticProps, InferGetStaticPropsType } from 'next';
+import { useSession } from 'next-auth/react';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { dashboardConfig } from '@/features/dashboard/dashboard.config';
 import { DashBoardPage } from '@/features/dashboard/pages/dashboard';
@@ -11,7 +12,15 @@ type Props = {
 export default function DashBoardRoute(
   _props: InferGetStaticPropsType<typeof getStaticProps>
 ) {
-  return <DashBoardPage />;
+  const { data: session, status } = useSession();
+
+  const loading = status === 'loading';
+  if (loading) {
+    return <div />;
+  }
+  if (session) {
+    return <DashBoardPage />;
+  }
 }
 
 export const getStaticProps: GetStaticProps<Props> = async (context) => {

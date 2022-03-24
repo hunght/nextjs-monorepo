@@ -6,6 +6,7 @@ import { appWithTranslation } from 'next-i18next';
 import type { AppProps as NextAppProps } from 'next/app';
 import Head from 'next/head';
 import { sentryBrowserInitConfig } from '@/config/sentry.config';
+import { wrapper } from 'redux/store';
 import { AppProviders } from '../app-providers';
 /**
  * Import global styles, global css or polyfills here
@@ -69,4 +70,4 @@ MyApp.getInitialProps = async appContext => {
 }
 */
 
-export default appWithTranslation(MyApp);
+export default appWithTranslation(wrapper.withRedux(MyApp));

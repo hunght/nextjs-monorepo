@@ -22,6 +22,7 @@
     "packages/*"
   ],
   "scripts": {
+    "dev": "yarn workspace trading-bot run dev",
     "clean": "rimraf '.cache/*' && yarn workspaces foreach -ptv run clean",
     "test": "run-s 'test:*'",
     "test:unit": "yarn workspaces foreach -ptv run test:unit",

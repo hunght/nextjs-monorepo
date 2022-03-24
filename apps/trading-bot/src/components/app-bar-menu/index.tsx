@@ -11,6 +11,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
 import { useSession, signOut } from 'next-auth/react';
+import { useRouter } from 'next/router';
 import * as React from 'react';
 
 const pages = ['Products', 'Pricing', 'Blog'];
@@ -20,6 +21,7 @@ const settings: ProfileMenu[] = ['Profile', 'Account', 'Logout'];
 
 const AppBarMenu = () => {
   const { data } = useSession();
+  const router = useRouter();
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
   );
@@ -45,7 +47,13 @@ const AppBarMenu = () => {
         console.log(data);
         console.log('==== end log ===');
       });
+      return;
     }
+    if (type === 'Profile') {
+      router.push('/user/profile');
+      return;
+    }
+
     setAnchorElUser(null);
   };
 
