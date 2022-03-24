@@ -40,7 +40,11 @@ const AppBarMenu = () => {
 
   const handleCloseUserMenu = (type: ProfileMenu) => {
     if (type === 'Logout') {
-      signOut();
+      signOut().then((data) => {
+        console.log(`==== data signOut ===`);
+        console.log(data);
+        console.log('==== end log ===');
+      });
     }
     setAnchorElUser(null);
   };

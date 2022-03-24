@@ -27,7 +27,7 @@
     ]
   },
   "scripts": {
-    "dev": "next",
+    "dev": "kill -9 $(lsof -t -i:3000);'next'",
     "build": "next build",
     "vercel-build": "yarn share:static:hardlink && cross-env NEXTJS_BUILD_TARGET=serverless next build",
     "clean": "rimraf --no-glob ./.next ./out ./coverage ./tsconfig.tsbuildinfo ./.eslintcache && jest --clear-cache",

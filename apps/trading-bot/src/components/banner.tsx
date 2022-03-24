@@ -30,10 +30,14 @@ export const Banner: React.FC<Props> = () => {
           </div>
           <div className="flex-shrink-0 order-3 sm:order-2 mt-2 sm:mt-0 w-full sm:w-auto">
             <a
-              href={`/api/auth/signin`}
+              href={`#`}
               onClick={(e) => {
                 e.preventDefault();
-                signIn();
+                signIn().then((data) => {
+                  console.log(`==== data ===`);
+                  console.log(data);
+                  console.log('==== end log ===');
+                });
               }}
               className="flex justify-center items-center py-2 px-4 text-sm font-medium text-indigo-600 bg-white hover:bg-indigo-50 rounded-md border border-transparent shadow-sm">
               Sign in

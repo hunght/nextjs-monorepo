@@ -1,0 +1,9 @@
+{
+  "page": {
+    "title": "User | trading-bot | nextjs-monorepo-example"
+  },
+  "btn": {
+    "getStarted": "Get started",
+    "liveDemo": "Live demo"
+  }
+}

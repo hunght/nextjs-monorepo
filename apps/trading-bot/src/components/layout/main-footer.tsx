@@ -28,17 +28,7 @@ const FooterCtn = styled.footer`
 export const MainFooter: FC = () => {
   return (
     <FooterCtn>
-      <div className={'bgImage'}>
-        <BgWaved />
-      </div>
-      <div className={'content'}>
-        <a
-          href={'https://github.com/hunght/nextjs-monorepo'}
-          target={'_blank'}
-          rel={'noopener noreferrer'}>
-          <GithubIcon />
-        </a>
-      </div>
+      <div className={'content'}>Footer</div>
     </FooterCtn>
   );
 };

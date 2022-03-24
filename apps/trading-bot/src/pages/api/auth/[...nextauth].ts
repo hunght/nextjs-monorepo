@@ -28,6 +28,12 @@ export default NextAuth({
     colorScheme: 'light',
   },
   callbacks: {
+    async session({ session, token, user }) {
+      // Send properties to the client, like an access_token from a provider.
+      session.accessToken = token.accessToken;
+      session.userId = user.id;
+      return session;
+    },
     async jwt({ token }) {
       token.userRole = 'admin';
       return token;
