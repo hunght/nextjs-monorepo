@@ -19,4 +19,4 @@ export const api = createApi({
   }),
 });
 
-export const { useUserProfileQuery } = api;
+export const { useLazyUserProfileQuery } = api;

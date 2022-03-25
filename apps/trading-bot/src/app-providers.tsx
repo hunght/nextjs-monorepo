@@ -7,6 +7,7 @@ import { useEffect } from 'react';
 
 import { createEmotionCache } from '@/core/nextjs/create-emotion-cache';
 import { muiTheme } from '@/themes/mui/mui.theme';
+import { useLazyUserProfileQuery } from 'redux/api';
 import { setCredentials } from 'redux/auth-slice';
 import { useAppDispatch } from 'redux/store';
 import type { Session } from 'type/user';
@@ -21,8 +22,14 @@ type Props = {
 export const AppProviders: FC<Props> = (props) => {
   const { emotionCache = clientSideEmotionCache } = props;
   const { data: session, status } = useSession();
+  const [trigger, result, lastPromiseInfo] = useLazyUserProfileQuery();
+
   const dispatch = useAppDispatch();
+
   useEffect(() => {
+    if (status === 'authenticated') {
+      trigger();
+    }
     const user: Session | undefined =
       session?.user && session?.userId
         ? {
@@ -32,6 +39,7 @@ export const AppProviders: FC<Props> = (props) => {
             id: session?.userId as string,
           }
         : undefined;
+
     dispatch(
       setCredentials({
         status,
