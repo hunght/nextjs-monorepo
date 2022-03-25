@@ -1,16 +1,16 @@
 import { Speaker as SpeakerIcon, Close as XIcon } from '@mui/icons-material';
-import { signIn, useSession } from 'next-auth/react';
+import { signIn } from 'next-auth/react';
 import { useState } from 'react';
+import { useAppSelector } from 'redux/store';
 
 type Props = {
   children?: never;
 };
 
 export const Banner: React.FC<Props> = () => {
-  const { data: session, status } = useSession();
+  const { status } = useAppSelector((state) => state.auth);
   const [show, setShow] = useState(true);
-  const loading = status === 'loading';
-  if (loading || session || !show) {
+  if (status === 'authenticated' || !show) {
     return <div />;
   }
   return (

@@ -10,9 +10,10 @@ import MenuItem from '@mui/material/MenuItem';
 import Toolbar from '@mui/material/Toolbar';
 import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
-import { useSession, signOut } from 'next-auth/react';
+import { signOut } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import * as React from 'react';
+import { useAppSelector } from 'redux/store';
 
 const pages = ['Products', 'Pricing', 'Blog'];
 type ProfileMenu = 'Profile' | 'Account' | 'Logout';
@@ -20,7 +21,7 @@ type ProfileMenu = 'Profile' | 'Account' | 'Logout';
 const settings: ProfileMenu[] = ['Profile', 'Account', 'Logout'];
 
 const AppBarMenu = () => {
-  const { data } = useSession();
+  const { session: user } = useAppSelector((state) => state.auth);
   const router = useRouter();
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
@@ -121,11 +122,11 @@ const AppBarMenu = () => {
             ))}
           </Box>
 
-          {data?.user && (
+          {user && (
             <Box sx={{ flexGrow: 0 }}>
               <Tooltip title="Open settings">
                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                  <Avatar alt="Remy Sharp" src={data.user.image ?? undefined} />
+                  <Avatar alt="Remy Sharp" src={user.image ?? undefined} />
                 </IconButton>
               </Tooltip>
               <Menu

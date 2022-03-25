@@ -1,4 +1,3 @@
-import { useSession } from 'next-auth/react';
 import { useTranslation } from 'next-i18next';
 import { NextSeo } from 'next-seo';
 import { MainLayout } from '@/components/layout/main-layout';
@@ -10,7 +9,6 @@ type Props = {
 
 export const UserPage: React.FC<Props> = () => {
   const { t } = useTranslation(userConfig.i18nNamespaces);
-  const { data: session } = useSession();
 
   return (
     <>

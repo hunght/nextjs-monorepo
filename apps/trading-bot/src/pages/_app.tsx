@@ -42,6 +42,7 @@ if (
  */
 const MyApp = (appProps: AppProps) => {
   const { Component, pageProps, emotionCache, err } = appProps;
+
   return (
     <SessionProvider session={pageProps.session} refetchInterval={0}>
       <AppProviders emotionCache={emotionCache}>

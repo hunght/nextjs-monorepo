@@ -1,10 +1,12 @@
 import type { ThunkAction } from '@reduxjs/toolkit';
 import { configureStore } from '@reduxjs/toolkit';
 import { createWrapper } from 'next-redux-wrapper';
-import { useDispatch } from 'react-redux';
+import type { TypedUseSelectorHook } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import type { Action } from 'redux';
 import { api } from './api';
 
+import type { RootState } from './rootReducer';
 import rootReducer from './rootReducer';
 
 export const store = configureStore({
@@ -27,3 +29,4 @@ export const wrapper = createWrapper<AppStore>(makeStore);
 
 export type AppDispatch = typeof store.dispatch;
 export const useAppDispatch = () => useDispatch<AppDispatch>(); // Export a hook that can be reused to resolve types
+export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
