@@ -12,15 +12,14 @@ type Props = {
 export default function DashBoardRoute(
   _props: InferGetStaticPropsType<typeof getStaticProps>
 ) {
-  const { data: session, status } = useSession();
+  const { status } = useSession();
 
   const loading = status === 'loading';
   if (loading) {
     return <div />;
   }
-  if (session) {
-    return <DashBoardPage />;
-  }
+
+  return <DashBoardPage />;
 }
 
 export const getStaticProps: GetStaticProps<Props> = async (context) => {

@@ -3,10 +3,10 @@ import { JsonApiErrorFactory } from '@nexttop.dev/core-lib/api/json-api/json-api
 import { MethodNotAllowed } from '@tsed/exceptions';
 
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { getAltRankTopCoins } from '@/backend/api/rest/altrank-top-coin';
+import { getAltRankTopCoins } from '@/backend/services/rest/altrank-top-coin';
 
-import { channelId, slackClient } from '@/backend/api/slack';
-import { threeCommasAPI } from '@/backend/api/three-commas';
+import { channelId, slackClient } from '@/backend/services/slack';
+import { threeCommasAPI } from '@/backend/services/three-commas';
 import { BOT_ID } from '@/config/galaxy-top-coin';
 
 export default async function altRankTopCoin(

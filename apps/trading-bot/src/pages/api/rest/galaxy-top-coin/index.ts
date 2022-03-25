@@ -3,9 +3,9 @@ import { JsonApiErrorFactory } from '@nexttop.dev/core-lib/api/json-api/json-api
 import { MethodNotAllowed } from '@tsed/exceptions';
 
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { getGalaxyTopCoins } from '@/backend/api/rest/galaxy-top-coin';
-import { channelId, slackClient } from '@/backend/api/slack';
-import { threeCommasAPI } from '@/backend/api/three-commas';
+import { getGalaxyTopCoins } from '@/backend/services/rest/galaxy-top-coin';
+import { channelId, slackClient } from '@/backend/services/slack';
+import { threeCommasAPI } from '@/backend/services/three-commas';
 import { BOT_ID } from '@/config/galaxy-top-coin';
 
 export default async function galaxyTopCoin(
