@@ -1,7 +1,6 @@
 import { useTranslation } from 'next-i18next';
 import { NextSeo } from 'next-seo';
 
-import AppBarMenu from '@/components/app-bar-menu';
 import { MainLayout } from '@/components/layout/main-layout';
 import BotTableBlock from '../blocks/bot-table';
 import { dashboardConfig } from '../dashboard.config';

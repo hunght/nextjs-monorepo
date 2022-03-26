@@ -1,5 +1,6 @@
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { createSlice } from '@reduxjs/toolkit';
+import { HYDRATE } from 'next-redux-wrapper';
 
 import { api } from 'redux/api';
 
@@ -24,13 +25,22 @@ const slice = createSlice({
       state.session = user;
     },
   },
-  extraReducers: (builder) => {
-    builder.addMatcher(
-      api.endpoints.userProfile.matchFulfilled,
-      (state, { payload }) => {
-        state.profile = payload.user;
-      }
-    );
+  // extraReducers: (builder) => {
+  //   builder.addMatcher(
+  //     api.endpoints.userProfile.matchFulfilled,
+  //     (state, { payload }) => {
+  //       state.profile = payload.user;
+  //     }
+  //   );
+  // },
+  extraReducers: {
+    [HYDRATE]: (state, action) => {
+      console.log('HYDRATE', state, action.payload);
+      return {
+        ...state,
+        ...action.payload.subject,
+      };
+    },
   },
 });
 export const { setCredentials } = slice.actions;

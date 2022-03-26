@@ -25,7 +25,12 @@ export type AppThunk<ReturnType = void> = ThunkAction<
   unknown,
   Action
 >;
-export const wrapper = createWrapper<AppStore>(makeStore);
+
+export const wrapper = createWrapper<AppStore>(makeStore, {
+  debug: true,
+  serializeState: (state) => JSON.stringify(state),
+  deserializeState: (state) => JSON.parse(state),
+});
 
 export type AppDispatch = typeof store.dispatch;
 export const useAppDispatch = () => useDispatch<AppDispatch>(); // Export a hook that can be reused to resolve types

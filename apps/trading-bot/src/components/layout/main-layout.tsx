@@ -10,6 +10,7 @@ import IconButton from '@mui/material/IconButton';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import * as React from 'react';
+import { ProfileMenu } from '../profile-menu';
 import { Sidebar } from './sidebar';
 
 const drawerWidth = 240;
@@ -66,6 +67,7 @@ export const MainLayout: React.FC<Props> = (props) => {
           <Typography variant="h6" noWrap component="div">
             Responsive drawer
           </Typography>
+          <ProfileMenu />
         </Toolbar>
       </AppBar>
       <Box
