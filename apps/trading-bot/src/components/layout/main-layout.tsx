@@ -1,16 +1,13 @@
-import MenuIcon from '@mui/icons-material/Menu';
-
-import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
 
 import Drawer from '@mui/material/Drawer';
-import IconButton from '@mui/material/IconButton';
 
 import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
+
 import * as React from 'react';
-import { ProfileMenu } from '../profile-menu';
+import { AppbarContainer } from '../appbar';
+
 import { Sidebar } from './sidebar';
 
 const drawerWidth = 240;
@@ -41,35 +38,11 @@ export const MainLayout: React.FC<Props> = (props) => {
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
-      <AppBar
-        position="fixed"
-        sx={{
-          width: { sm: `calc(100% - ${drawerWidthCaculated}px)` },
-          ml: { sm: `${drawerWidthCaculated}px` },
-        }}>
-        <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            edge="start"
-            onClick={handleMobileDrawerToggle}
-            sx={{ mr: 2, display: { sm: 'none' } }}>
-            <MenuIcon />
-          </IconButton>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            edge="start"
-            onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { xs: 'none', sm: 'block' } }}>
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" noWrap component="div">
-            Responsive drawer
-          </Typography>
-          <ProfileMenu />
-        </Toolbar>
-      </AppBar>
+      <AppbarContainer
+        drawerWidthCaculated={drawerWidthCaculated}
+        handleDrawerToggle={handleDrawerToggle}
+        handleMobileDrawerToggle={handleMobileDrawerToggle}
+      />
       <Box
         component="nav"
         sx={{ width: { sm: drawerWidthCaculated }, flexShrink: { sm: 0 } }}
