@@ -1,20 +1,13 @@
-import { Asserts } from '@nexttop.dev/core-lib';
 import {
   getDevSafeInstance,
   PrismaClientDbMain,
 } from '@nexttop.dev/db-main-prisma';
+import { NODE_ENV, PRISMA_DATABASE_URL } from '@/config/env';
 
-const isDev = process.env?.NODE_ENV === 'development';
+const isDev = NODE_ENV === 'development';
 
 export const getPrismaClientDbMain: () => PrismaClientDbMain = () => {
-  const url = process.env?.PRISMA_DATABASE_URL ?? null;
-  Asserts.nonEmptyString(
-    url,
-    () =>
-      new Error(
-        `[Error] Cannot create prisma client instance, missing env variable PRISMA_DATABASE_URL.`
-      )
-  );
+  const url = PRISMA_DATABASE_URL;
 
   return getDevSafeInstance('db-main', () => {
     const prismaClient = new PrismaClientDbMain({

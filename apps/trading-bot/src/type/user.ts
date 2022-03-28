@@ -8,5 +8,5 @@ export interface Session {
 }
 export type Profile = User & {
   apiCredentials: APICredential[];
-  tradingBots: TradingBot[];
+  currentAPICredential: APICredential | null;
 };

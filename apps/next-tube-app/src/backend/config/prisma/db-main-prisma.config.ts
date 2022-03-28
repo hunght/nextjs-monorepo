@@ -7,7 +7,7 @@ import {
 const isDev = process.env?.NODE_ENV === 'development';
 
 export const getPrismaClientDbMain: () => PrismaClientDbMain = () => {
-  const url = process.env?.PRISMA_DATABASE_URL ?? null;
+  const url = process.env?.PRISMA_DATABASE_URL;
   Asserts.nonEmptyString(
     url,
     () =>

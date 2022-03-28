@@ -1,4 +1,4 @@
-import { Asserts } from '../asserts';
+import * as Asserts from '../asserts';
 
 describe('Asserts test', () => {
   describe('Asserts.nonEmptyString', () => {
