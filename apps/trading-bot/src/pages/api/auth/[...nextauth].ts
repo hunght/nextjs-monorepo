@@ -6,6 +6,7 @@ import FacebookProvider from 'next-auth/providers/facebook';
 import GoogleProvider from 'next-auth/providers/google';
 
 import { prismaClient } from '@/backend/config/container.config';
+import { sendVerificationRequest } from '@/backend/services/email';
 import { EMAIL_SERVER, SMTP_FROM_EMAIL_NO_REPLY } from '@/config/env';
 // For more information on each option (and a full list of options) go to
 // https://next-auth.js.org/configuration/options
@@ -13,8 +14,11 @@ export default NextAuth({
   adapter: PrismaAdapter(prismaClient),
   providers: [
     EmailProvider({
-      server: EMAIL_SERVER,
-      from: SMTP_FROM_EMAIL_NO_REPLY,
+      server: process.env.EMAIL_SERVER,
+      from: process.env.EMAIL_FROM,
+      sendVerificationRequest(data) {
+        sendVerificationRequest(data);
+      },
     }),
     FacebookProvider({
       clientId: process.env.FACEBOOK_ID ?? '',
