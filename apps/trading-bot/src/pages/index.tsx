@@ -2,6 +2,7 @@ import { BadRequest } from '@tsed/exceptions';
 import type { GetStaticProps, InferGetStaticPropsType } from 'next';
 
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+
 import { dashboardConfig } from '@/features/dashboard/dashboard.config';
 import { DashBoardPage } from '@/features/dashboard/pages/dashboard';
 import { homeConfig } from '@/features/home/home.config';
@@ -12,9 +13,7 @@ export default function RootRoute(
   _props: InferGetStaticPropsType<typeof getStaticProps>
 ) {
   const { status } = useAppSelector((state) => state.auth);
-  if (status === 'loading') {
-    return <div>loading...</div>;
-  }
+
   if (status === 'authenticated') {
     return <DashBoardPage />;
   }

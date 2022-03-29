@@ -29,5 +29,10 @@ export const SMTP_PASSWORD = getEnvStringValue('SMTP_PASSWORD');
 export const SMTP_FROM_EMAIL_NO_REPLY = getEnvStringValue(
   'SMTP_FROM_EMAIL_NO_REPLY'
 );
-export const STMP_FROM_NAME = getEnvStringValue('STMP_FROM_NAME');
+export const SMTP_FROM_NAME = getEnvStringValue('SMTP_FROM_NAME');
 export const EMAIL_SERVER = `smtp://${SMTP_USER}:${SMTP_PASSWORD}@${SMTP_HOST}:${SMTP_PORT}`;
+
+export const GOOGLE_CLIENT_ID = getEnvStringValue('GOOGLE_CLIENT_ID');
+export const GOOGLE_CLIENT_SECRET = getEnvStringValue('GOOGLE_CLIENT_SECRET');
+export const GOOGLE_REDIRECT_URI = getEnvStringValue('GOOGLE_REDIRECT_URI');
+export const GOOGLE_REFRESH_TOKEN = getEnvStringValue('GOOGLE_REFRESH_TOKEN');

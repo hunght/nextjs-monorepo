@@ -7,14 +7,8 @@ type NoChildrenProps = {
 };
 
 const PoemGridWithReactQueryAndKy: React.FC<NoChildrenProps> = () => {
-  const { data, isLoading, error } = useQuery(
-    'posts',
-    () => fetchPoemsWithKy(),
-    {}
-  );
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
+  const { data, error } = useQuery('posts', () => fetchPoemsWithKy(), {});
+
   if (error) {
     return <div>Error {JSON.stringify(error)}</div>;
   }
