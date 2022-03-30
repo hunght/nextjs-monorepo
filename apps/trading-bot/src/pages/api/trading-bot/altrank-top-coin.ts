@@ -3,12 +3,13 @@ import { JsonApiErrorFactory } from '@nexttop.dev/core-lib/api/json-api/json-api
 import { MethodNotAllowed } from '@tsed/exceptions';
 
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { getGalaxyTopCoins } from '@/backend/services/rest/galaxy-top-coin';
+
 import { channelId, slackClient } from '@/backend/services/slack';
 import { threeCommasAPI } from '@/backend/services/three-commas';
+import { getAltRankTopCoins } from '@/backend/services/trading-bot/altrank-top-coin';
 import { BOT_ID } from '@/config/galaxy-top-coin';
 
-export default async function galaxyTopCoin(
+export default async function altRankTopCoin(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
@@ -18,7 +19,7 @@ export default async function galaxyTopCoin(
     try {
       const minvolume = bot.min_volume_btc_24h ?? 0;
 
-      const { data: pairs } = await getGalaxyTopCoins({
+      const { data: pairs } = await getAltRankTopCoins({
         minvolume,
       });
       updatePairs = pairs;

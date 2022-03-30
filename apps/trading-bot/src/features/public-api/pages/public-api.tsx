@@ -4,8 +4,10 @@ import { NextSeo } from 'next-seo';
 
 import { MainLayout } from '@/components/layout/main-layout';
 
+import { useUserCreateAPICredentialMutation } from 'redux/api';
 import { useAppSelector } from 'redux/store';
-import { DemoMuiBlock } from '../blocks/demo-mui.block';
+
+import { AddNewAPICard } from '../blocks/add-new-api-card';
 import { Jumbotron } from '../blocks/jumbotron';
 import { publicApiConfig } from '../public-api.config';
 
@@ -16,7 +18,8 @@ type Props = {
 export const PublicAPIPage: React.FC<Props> = () => {
   const { t } = useTranslation(publicApiConfig.i18nNamespaces);
   const profile = useAppSelector((state) => state.auth.profile);
-
+  const [createAPICredential, { isLoading }] =
+    useUserCreateAPICredentialMutation();
   return (
     <>
       <NextSeo
@@ -24,17 +27,12 @@ export const PublicAPIPage: React.FC<Props> = () => {
         description="trading-bot nextjs monorepo example, https://github.com/hunght/nextjs-monorepo"
       />
       <MainLayout>
-        <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-          <TextField id="outlined-error" label="API Key" variant="standard" />
-          <TextField
-            error
-            id="outlined-error"
-            label="API Secret"
-            variant="standard"
-          />
-        </Box>
-
-        <DemoMuiBlock />
+        <AddNewAPICard
+          loading={isLoading}
+          onClickAdd={(data) => {
+            createAPICredential(data);
+          }}
+        />
         <Jumbotron />
       </MainLayout>
     </>

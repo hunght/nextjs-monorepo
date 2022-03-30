@@ -1,3 +1,4 @@
+import type { APICredential } from '@prisma/client';
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { HYDRATE } from 'next-redux-wrapper';
 import type { Profile } from 'type/user';
@@ -8,7 +9,7 @@ export interface UserResponse {
 
 export const api = createApi({
   baseQuery: fetchBaseQuery({
-    baseUrl: '/',
+    baseUrl: '/api',
   }),
   extractRehydrationInfo(action, { reducerPath }) {
     if (action.type === HYDRATE) {
@@ -18,11 +19,22 @@ export const api = createApi({
   endpoints: (builder) => ({
     userProfile: builder.query<UserResponse, void>({
       query: () => ({
-        url: 'api/user/profile',
+        url: 'user/profile',
         method: 'GET',
+      }),
+    }),
+    userCreateAPICredential: builder.mutation<
+      UserResponse,
+      Pick<APICredential, 'apiKey' | 'apiSecret' | 'name'>
+    >({
+      query: (postData) => ({
+        url: `api-credential`,
+        method: 'POST',
+        body: postData,
       }),
     }),
   }),
 });
 
-export const { useLazyUserProfileQuery } = api;
+export const { useLazyUserProfileQuery, useUserCreateAPICredentialMutation } =
+  api;
