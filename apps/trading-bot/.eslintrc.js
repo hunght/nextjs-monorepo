@@ -23,7 +23,7 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     'jsx-a11y/anchor-is-valid': 'off',
     'react/no-unescaped-entities': 'off',
-
+    'jsx-a11y/no-autofocus': 'off',
     // next/image might not be yet a good move as of NextJs v11.
     // https://github.com/vercel/next.js/discussions/16832
     '@next/next/no-img-element': 'off',

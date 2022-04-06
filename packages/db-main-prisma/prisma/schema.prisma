@@ -76,7 +76,7 @@ model VerificationToken {
 
 model APICredential {
   id          String       @id @default(cuid())
-  apiKey      String       @unique
+  apiKey      String       
   status      Status
   apiSecret   String
   name        String
@@ -85,6 +85,7 @@ model APICredential {
   user        User         @relation(fields: [userId], references: [id], onDelete: Cascade)
   tradingBots TradingBot[]
   User        User[]       @relation("currentAPICredential")
+  @@unique([apiKey, userId])
 }
 
 model TradingBot {

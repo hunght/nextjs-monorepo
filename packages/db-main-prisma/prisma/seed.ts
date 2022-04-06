@@ -6,7 +6,7 @@ const prisma = new PrismaClient();
 const userData: Prisma.UserCreateInput[] = [
   {
     name: 'Vanvelthem',
-    email: 'belgattitude@gmail.com',
+    email: 'hunght@gmail.com',
   },
 ];
 
