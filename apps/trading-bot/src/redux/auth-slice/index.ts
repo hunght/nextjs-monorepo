@@ -32,6 +32,12 @@ const slice = createSlice({
         state.profile = payload.user;
       }
     );
+    builder.addMatcher(
+      api.endpoints.deleteAPICredential.matchFulfilled,
+      (state, { payload }) => {
+        state.profile = payload.user;
+      }
+    );
   },
   // extraReducers: {
   //   [HYDRATE]: (state, action) => {

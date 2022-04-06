@@ -3,7 +3,7 @@ import { NextSeo } from 'next-seo';
 
 import { MainLayout } from '@/components/layout/main-layout';
 
-import { useUserCreateAPICredentialMutation } from 'redux/api';
+import { useCreateAPICredentialMutation } from 'redux/api';
 import { useAppSelector } from 'redux/store';
 
 import { AddNewAPICard } from '../blocks/add-new-api-card';
@@ -19,8 +19,7 @@ export const PublicAPIPage: React.FC<Props> = () => {
   const { t } = useTranslation(publicApiConfig.i18nNamespaces);
   const profile = useAppSelector((state) => state.auth.profile);
 
-  const [createAPICredential, { isLoading }] =
-    useUserCreateAPICredentialMutation();
+  const [createAPICredential, { isLoading }] = useCreateAPICredentialMutation();
   return (
     <>
       <NextSeo

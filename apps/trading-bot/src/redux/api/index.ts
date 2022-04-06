@@ -23,7 +23,7 @@ export const api = createApi({
         method: 'GET',
       }),
     }),
-    userCreateAPICredential: builder.mutation<
+    createAPICredential: builder.mutation<
       UserResponse,
       Pick<APICredential, 'apiKey' | 'apiSecret' | 'name'>
     >({
@@ -33,8 +33,17 @@ export const api = createApi({
         body: postData,
       }),
     }),
+    deleteAPICredential: builder.mutation<UserResponse, { id: string }>({
+      query: ({ id }) => ({
+        url: `api-credential/${id}`,
+        method: 'DELETE',
+      }),
+    }),
   }),
 });
 
-export const { useLazyUserProfileQuery, useUserCreateAPICredentialMutation } =
-  api;
+export const {
+  useLazyUserProfileQuery,
+  useCreateAPICredentialMutation,
+  useDeleteAPICredentialMutation,
+} = api;

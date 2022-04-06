@@ -18,26 +18,29 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     if (req.method === 'DELETE') {
       const userId = session?.userId as string;
 
-      const credential = await prismaClient.aPICredential.update({
-        data: { status: 'DELETED' },
-        where: { id: id },
-      });
-
       const user = await prismaClient.user.findUnique({
         where: { id: userId },
-        include: {
-          apiCredentials: { where: { status: 'ACTIVE' } },
-          currentAPICredential: true,
-        },
       });
+
       if (user?.currentAPICredentialId === id) {
         res.status(300).send({
           message: 'Can not deleted api credential default.',
         });
         return;
       }
+      await prismaClient.aPICredential.update({
+        data: { status: 'DELETED' },
+        where: { id: id },
+      });
+      const data = await prismaClient.user.findUnique({
+        where: { id: userId },
+        include: {
+          apiCredentials: { where: { status: 'ACTIVE' } },
+          currentAPICredential: true,
+        },
+      });
       res.send({
-        data: user,
+        data,
       });
       console.log(`==== user ===`);
       console.log(user);

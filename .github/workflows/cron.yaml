@@ -1,13 +1,13 @@
-name: 45-minute-cron
-on:
-  schedule:
-    - cron: '*/45 * * * *'
-jobs:
-  cron:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Call our API route
-        run: |
-          curl --request GET \
-          --url 'https://www.nexttradingbot.com/api/trading-bot/galaxy-top-coin' \
-          --header 'Authorization: Bearer ${{ secrets.THREE_COMMAS_SECRET_KEY }}'
+# name: 45-minute-cron
+# on:
+#   schedule:
+#     - cron: '*/45 * * * *'
+# jobs:
+#   cron:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Call our API route
+#         run: |
+#           curl --request GET \
+#           --url 'https://www.nexttradingbot.com/api/trading-bot/galaxy-top-coin' \
+#           --header 'Authorization: Bearer ${{ secrets.THREE_COMMAS_SECRET_KEY }}'

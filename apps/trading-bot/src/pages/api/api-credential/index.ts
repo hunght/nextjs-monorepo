@@ -25,16 +25,13 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
         where: { id: userId },
         data: { currentAPICredentialId: credential.id },
         include: {
-          apiCredentials: true,
+          apiCredentials: { where: { status: 'ACTIVE' } },
           currentAPICredential: true,
         },
       });
       res.send({
         data: user,
       });
-      console.log(`==== user ===`);
-      console.log(user);
-      console.log('==== end log ===');
     }
   } else {
     res.send({

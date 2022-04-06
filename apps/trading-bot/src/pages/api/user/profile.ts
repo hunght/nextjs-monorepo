@@ -11,7 +11,10 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     const userId = session?.userId as string;
     const user = await prismaClient.user.findUnique({
       where: { id: userId },
-      include: { apiCredentials: true, currentAPICredential: true },
+      include: {
+        apiCredentials: { where: { status: 'ACTIVE' } },
+        currentAPICredential: true,
+      },
     });
     res.send({
       user,

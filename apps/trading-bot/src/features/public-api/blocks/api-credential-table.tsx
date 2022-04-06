@@ -8,6 +8,7 @@ import { DataGrid } from '@mui/x-data-grid';
 import type { GridColDef } from '@mui/x-data-grid';
 import type { APICredential } from '@prisma/client';
 import * as React from 'react';
+import { useDeleteAPICredentialMutation } from 'redux/api';
 
 const columns = ({
   onClickDelete,
@@ -59,7 +60,7 @@ export const APICredentialTable: React.FC<{ apis: APICredential[] }> = ({
 }) => {
   const [open, setOpen] = React.useState(false);
   const [selectedId, setSelectedId] = React.useState<string | undefined>();
-
+  const [deleteAPICredential, { isLoading }] = useDeleteAPICredentialMutation();
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -97,17 +98,16 @@ export const APICredentialTable: React.FC<{ apis: APICredential[] }> = ({
         </DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
-            Let Google help apps determine location. This means sending
-            anonymous location data to Google, even when no apps are running.
+            You really want to delete this api credential
           </DialogContentText>
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>Cancel</Button>
           <Button
             onClick={() => {
-              console.log(`==== selectedId ===`);
-              console.log(selectedId);
-              console.log('==== end log ===');
+              if (selectedId) {
+                deleteAPICredential({ id: selectedId });
+              }
             }}
             autoFocus>
             Delete
