@@ -1,25 +1,48 @@
+import { isNonEmptyString } from '@nexttop.dev/core-lib';
 import { JsonApiResponseFactory } from '@nexttop.dev/core-lib/api/json-api';
 import { JsonApiErrorFactory } from '@nexttop.dev/core-lib/api/json-api/json-api-error.factory';
 import { MethodNotAllowed } from '@tsed/exceptions';
 
 import type { NextApiRequest, NextApiResponse } from 'next';
 
+import { getSession } from 'next-auth/react';
 import { channelId, slackClient } from '@/backend/services/slack';
-import { threeCommasAPI } from '@/backend/services/three-commas';
+
 import { getAltRankTopCoins } from '@/backend/services/trading-bot/altrank-top-coin';
+import { createThreeCommasAPI } from '@/backend/services/trading-bot/three-commas';
 import { BOT_ID } from '@/config/galaxy-top-coin';
 
 export default async function altRankTopCoin(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
+  const session = await getSession({ req });
+  if (!session) {
+    res.send({
+      error: 'You must be signed in',
+    });
+    return;
+  }
+
+  const userId = session?.userId;
+  if (!isNonEmptyString(userId)) {
+    console.error('[trading-bot][altRankTopCoin] id or userId is not string', {
+      userId,
+    });
+    res.status(400).send({
+      error: 'Invalid input',
+    });
+    return;
+  }
   if (req.method === 'GET') {
+    const threeCommasAPI = await createThreeCommasAPI(userId);
     const bot = await threeCommasAPI.getBot(BOT_ID);
     let updatePairs: string[] = [];
     try {
       const minvolume = bot.min_volume_btc_24h ?? 0;
 
       const { data: pairs } = await getAltRankTopCoins({
+        userId,
         minvolume,
       });
       updatePairs = pairs;

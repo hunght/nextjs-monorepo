@@ -6,7 +6,8 @@ import {
   MAX_COINS,
   COIN_LIMIT,
 } from '@/config/galaxy-top-coin';
-import { threeCommasAPI } from '../three-commas';
+import { createThreeCommasAPI } from './three-commas';
+
 const MARKET_CODE = 'binance';
 const CURRENCY_PAIR_DEFAULT = 'USDT_BTC';
 
@@ -34,12 +35,14 @@ const fetchGalaxyTopCoins = async (): Promise<{
 
 export const getGalaxyTopCoins = async ({
   minvolume,
+  userId,
 }: {
   minvolume: number;
+  userId: string;
 }): Promise<{ data: string[]; success: boolean }> => {
   try {
     const { data } = await fetchGalaxyTopCoins();
-
+    const threeCommasAPI = await createThreeCommasAPI(userId);
     const { last } = await threeCommasAPI.getCurrencyRate({
       market_code: MARKET_CODE,
       pair: CURRENCY_PAIR_DEFAULT,

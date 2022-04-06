@@ -29,13 +29,13 @@ const slice = createSlice({
     builder.addMatcher(
       api.endpoints.userProfile.matchFulfilled,
       (state, { payload }) => {
-        state.profile = payload.user;
+        state.profile = payload.data;
       }
     );
     builder.addMatcher(
       api.endpoints.deleteAPICredential.matchFulfilled,
       (state, { payload }) => {
-        state.profile = payload.user;
+        state.profile = payload.data;
       }
     );
   },

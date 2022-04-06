@@ -7,6 +7,6 @@ export interface Session {
   id: string;
 }
 export type Profile = User & {
-  apiCredentials: APICredential[];
   currentAPICredential: APICredential | null;
+  apiCredentials: APICredential[];
 };

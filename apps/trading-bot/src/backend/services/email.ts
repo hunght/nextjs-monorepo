@@ -55,7 +55,7 @@ async function getNodemailerOptions(): Promise<SMTPTransport.Options> {
   return nodemailerOptions;
 }
 
-export async function sendVerificationRequest({
+export const sendVerificationRequest = async ({
   identifier: email,
   url,
   provider: { from },
@@ -65,7 +65,7 @@ export async function sendVerificationRequest({
   expires: Date;
   provider: EmailConfig;
   token: string;
-}) {
+}): Promise<void> => {
   try {
     const { host } = new URL(url);
     const nodemailerOptions: SMTPTransport.Options =
@@ -86,10 +86,14 @@ export async function sendVerificationRequest({
     console.log(error);
     console.log('==== end log ===');
   }
-}
+};
 
 // Email HTML body
-function html({ url, host, email }: Record<'url' | 'host' | 'email', string>) {
+const html = ({
+  url,
+  host,
+  email,
+}: Record<'url' | 'host' | 'email', string>): string => {
   // Insert invisible space into domains and email address to prevent both the
   // email address and the domain from being turned into a hyperlink by email
   // clients like Outlook and Apple mail, as this is confusing because it seems
@@ -137,9 +141,8 @@ function html({ url, host, email }: Record<'url' | 'host' | 'email', string>) {
   </table>
 </body>
 `;
-}
+};
 
 // Email Text body (fallback for email clients that don't render HTML, e.g. feature phones)
-function text({ url, host }: Record<'url' | 'host', string>) {
-  return `Sign in to ${host}\n${url}\n\n`;
-}
+const text = ({ url, host }: Record<'url' | 'host', string>): string =>
+  `Sign in to ${host}\n${url}\n\n`;

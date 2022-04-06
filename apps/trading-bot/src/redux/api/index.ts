@@ -4,7 +4,7 @@ import { HYDRATE } from 'next-redux-wrapper';
 import type { Profile } from 'type/user';
 
 export interface UserResponse {
-  user?: Profile;
+  data?: Profile;
 }
 
 export const api = createApi({
