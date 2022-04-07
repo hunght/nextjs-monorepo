@@ -6,7 +6,7 @@ import DialogContentText from '@mui/material/DialogContentText';
 
 import { DataGrid } from '@mui/x-data-grid';
 import type { GridColDef } from '@mui/x-data-grid';
-import type { APICredential } from '@prisma/client';
+import type { TradingBot } from '@prisma/client';
 import * as React from 'react';
 
 const columns = ({
@@ -18,11 +18,8 @@ const columns = ({
   onClickEdit: (id: string) => void;
   onSelectCurrentAPI: (id: string) => void;
 }): GridColDef[] => [
-  { field: 'id', headerName: 'ID', width: 70 },
-  { field: 'name', headerName: 'name', width: 130 },
-  { field: 'apiKey', headerName: 'apiKey', width: 130 },
-  { field: 'apiSecret', headerName: 'apiSecret', width: 130 },
-  { field: 'type', headerName: 'type', width: 130 },
+  { field: 'botId', headerName: 'ID', width: 100 },
+  { field: 'name', headerName: 'name', width: 530 },
   {
     field: 'col5',
     headerName: '',
@@ -71,11 +68,11 @@ const columns = ({
 ];
 
 type Props = {
-  apis: APICredential[];
+  apis: TradingBot[];
   onDeleteItem: (id: string) => void;
 };
 
-export const APICredentialTable: React.FC<Props> = ({ apis, onDeleteItem }) => {
+export const TradingBotTable: React.FC<Props> = ({ apis, onDeleteItem }) => {
   const [open, setOpen] = React.useState(false);
   const [selectedId, setSelectedId] = React.useState<string | undefined>();
 

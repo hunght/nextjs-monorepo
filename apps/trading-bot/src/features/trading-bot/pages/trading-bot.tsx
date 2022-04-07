@@ -6,7 +6,7 @@ import { MainLayout } from '@/components/layout/main-layout';
 import { useTradingBotsQuery } from 'redux/api';
 import { useAppSelector } from 'redux/store';
 
-import { APICredentialTable } from '../blocks/api-credential-table';
+import { TradingBotTable } from '../blocks/list-table';
 
 import { tradingBotConfig } from '../trading-bot.config';
 
@@ -26,8 +26,8 @@ export const TradingBotPage: React.FC<Props> = () => {
         description="trading-bot nextjs monorepo example, https://github.com/hunght/nextjs-monorepo"
       />
       <MainLayout error={JSON.stringify(error)}>
-        <APICredentialTable
-          apis={profile?.apiCredentials ?? []}
+        <TradingBotTable
+          apis={data?.data ?? []}
           onDeleteItem={(selectedId) => {
             console.log(`==== selectedId ===`);
             console.log(selectedId);

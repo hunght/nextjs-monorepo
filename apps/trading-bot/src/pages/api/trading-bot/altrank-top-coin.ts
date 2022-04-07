@@ -35,7 +35,7 @@ export default async function altRankTopCoin(
     });
   }
   if (req.method === 'GET') {
-    const threeCommasAPI = await createThreeCommasAPI(userId);
+    const { client: threeCommasAPI } = await createThreeCommasAPI(userId);
     const bot = await threeCommasAPI.getBot(BOT_ID);
     let updatePairs: string[] = [];
     try {

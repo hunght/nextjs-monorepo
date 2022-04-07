@@ -85,11 +85,13 @@ model APICredential {
   user        User         @relation(fields: [userId], references: [id], onDelete: Cascade)
   tradingBots TradingBot[]
   User        User[]       @relation("currentAPICredential")
+  lastSync    DateTime? 
   @@unique([apiKey, userId])
 }
 
 model TradingBot {
   id              String        @id @default(cuid())
+  botId           String        
   name            String
   rawData         Json
   status          Status
@@ -97,4 +99,5 @@ model TradingBot {
   user            User          @relation(fields: [userId], references: [id], onDelete: Cascade)
   apiCredentialId String
   apiCredential   APICredential @relation(fields: [apiCredentialId], references: [id])
+  @@unique([botId, apiCredentialId])
 }

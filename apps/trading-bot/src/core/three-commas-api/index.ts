@@ -4,6 +4,7 @@ import Axios from 'axios';
 import qs from 'qs';
 
 import { sign } from './lib/crypto';
+import type { TradingBot3Commas } from './types/bot';
 import type { Order } from './types/generated-types';
 import { Convert } from './types/generated-types';
 import type {
@@ -36,6 +37,7 @@ export type Bot = {
 
 export class ThreeCommasAPI {
   private readonly KEY: string;
+
   private readonly SECRETS: string;
   private readonly errorHandler?: (
     response: ThreeCommasError,
@@ -361,7 +363,7 @@ export class ThreeCommasAPI {
       sort_by: 'created_at',
       sort_direction: 'desc',
     }
-  ) {
+  ): Promise<TradingBot3Commas[]> {
     return await this.request('GET', 1, '/bots', params);
   }
 

@@ -1,4 +1,4 @@
-import type { APICredential } from '@prisma/client';
+import type { APICredential, TradingBot } from '@prisma/client';
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { HYDRATE } from 'next-redux-wrapper';
 import type { Profile } from 'type/user';
@@ -23,7 +23,7 @@ export const api = createApi({
         method: 'GET',
       }),
     }),
-    tradingBots: builder.query<UserResponse, void>({
+    tradingBots: builder.query<{ data: TradingBot[] }, void>({
       query: () => ({
         url: 'trading-bot',
         method: 'GET',

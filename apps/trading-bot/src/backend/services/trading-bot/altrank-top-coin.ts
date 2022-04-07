@@ -42,7 +42,7 @@ export const getAltRankTopCoins = async ({
 }): Promise<{ data: string[]; success: boolean }> => {
   try {
     const { data } = await fetchAltRankTopCoins();
-    const threeCommasAPI = await createThreeCommasAPI(userId);
+    const { client: threeCommasAPI } = await createThreeCommasAPI(userId);
 
     const { last } = await threeCommasAPI.getCurrencyRate({
       market_code: MARKET_CODE,

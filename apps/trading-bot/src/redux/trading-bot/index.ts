@@ -3,48 +3,27 @@ import { createSlice } from '@reduxjs/toolkit';
 
 import { api } from 'redux/api';
 
-import type { TradingBotState } from './type';
+import type { Mode, TradingBotState } from './type';
 
-const initialState: TradingBotState = { mode: 'real' };
+const initialState: TradingBotState = { mode: 'real', bots: [] };
 
 const slice = createSlice({
   name: 'trading-bot',
   initialState: initialState,
   reducers: {
-    setCredentials: (
-      state,
-      {
-        payload: { status, token, session: user },
-      }: PayloadAction<Partial<TradingBotState>>
-    ) => {
-      if (status) {
-        state.status = status;
-      }
-      state.token = token;
-      state.session = user;
+    setTradingMode: (state, { payload }: PayloadAction<Mode>) => {
+      state.mode = payload;
     },
   },
   extraReducers: (builder) => {
     builder.addMatcher(
-      api.endpoints.userProfile.matchFulfilled,
+      api.endpoints.tradingBots.matchFulfilled,
       (state, { payload }) => {
-        state.profile = payload.data;
-      }
-    );
-    builder.addMatcher(
-      api.endpoints.deleteAPICredential.matchFulfilled,
-      (state, { payload }) => {
-        state.profile = payload.data;
-      }
-    );
-    builder.addMatcher(
-      api.endpoints.createAPICredential.matchFulfilled,
-      (state, { payload }) => {
-        state.profile = payload.data;
+        state.bots = payload.data;
       }
     );
   },
 });
-export const { setCredentials } = slice.actions;
+export const { setTradingMode } = slice.actions;
 
 export default slice.reducer;
