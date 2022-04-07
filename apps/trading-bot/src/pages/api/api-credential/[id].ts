@@ -1,5 +1,3 @@
-// This is an example of to protect an API route
-
 import { isNonEmptyString } from '@nexttop.dev/core-lib';
 
 import type { NextApiRequest, NextApiResponse } from 'next';

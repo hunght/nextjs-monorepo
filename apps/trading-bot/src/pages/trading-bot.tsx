@@ -1,17 +1,17 @@
 import { BadRequest } from '@tsed/exceptions';
 import type { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import { PublicAPIPage } from '@/features/public-api/pages/public-api';
-import { publicApiConfig } from '@/features/public-api/public-api.config';
+import { TradingBotPage } from '@/features/trading-bot/pages/trading-bot';
+import { tradingBotConfig } from '@/features/trading-bot/trading-bot.config';
 
 type Props = {
-  /** Add PublicAPIRoute props here */
+  /** Add TradingBotRoute props here */
 };
 
-export default function PublicAPIRoute(
+export default function TradingBotRoute(
   _props: InferGetStaticPropsType<typeof getStaticProps>
 ) {
-  return <PublicAPIPage />;
+  return <TradingBotPage />;
 }
 
 export const getStaticProps: GetStaticProps<Props> = async (context) => {
@@ -19,7 +19,7 @@ export const getStaticProps: GetStaticProps<Props> = async (context) => {
   if (locale === undefined) {
     throw new BadRequest('locale is missing');
   }
-  const { i18nNamespaces } = publicApiConfig;
+  const { i18nNamespaces } = tradingBotConfig;
   return {
     props: {
       // i18nNamespaces.slice() is needed here to get rid off readonly

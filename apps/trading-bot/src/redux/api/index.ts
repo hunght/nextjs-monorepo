@@ -23,6 +23,12 @@ export const api = createApi({
         method: 'GET',
       }),
     }),
+    tradingBots: builder.query<UserResponse, void>({
+      query: () => ({
+        url: 'trading-bot',
+        method: 'GET',
+      }),
+    }),
     createAPICredential: builder.mutation<
       UserResponse,
       Pick<APICredential, 'apiKey' | 'apiSecret' | 'name'>
@@ -46,4 +52,5 @@ export const {
   useLazyUserProfileQuery,
   useCreateAPICredentialMutation,
   useDeleteAPICredentialMutation,
+  useTradingBotsQuery,
 } = api;

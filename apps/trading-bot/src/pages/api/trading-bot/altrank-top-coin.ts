@@ -29,10 +29,10 @@ export default async function altRankTopCoin(
     console.error('[trading-bot][altRankTopCoin] id or userId is not string', {
       userId,
     });
-    res.status(400).send({
+
+    return res.status(400).send({
       error: 'Invalid input',
     });
-    return;
   }
   if (req.method === 'GET') {
     const threeCommasAPI = await createThreeCommasAPI(userId);

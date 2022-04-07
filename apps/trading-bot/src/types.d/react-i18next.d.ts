@@ -10,6 +10,7 @@ import type dashboard from '../../public/locales/en/dashboard.json';
 import type home from '../../public/locales/en/home.json';
 import type publicApi from '../../public/locales/en/public-api.json';
 import type system from '../../public/locales/en/system.json';
+import type tradingBot from '../../public/locales/en/trading-bot.json';
 import type user from '../../public/locales/en/user.json';
 
 declare module 'react-i18next' {
@@ -22,6 +23,7 @@ declare module 'react-i18next' {
       system: typeof system;
       user: typeof user;
       publicApi: typeof publicApi;
+      tradingBot: typeof tradingBot;
     };
   }
 }
