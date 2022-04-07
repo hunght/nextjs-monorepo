@@ -26,3 +26,21 @@ export const createThreeCommasAPI = async (
     },
   });
 };
+export const createThreeCommasAPIWithKey = async ({
+  apiKey,
+  apiSecret,
+}: {
+  apiKey: string;
+  apiSecret: string;
+}): Promise<ThreeCommasAPI> =>
+  new ThreeCommasAPI({
+    key: apiKey, // Optional if only query endpoints with no security requirement
+    secrets: apiSecret, // Optional
+    timeout: 60000, // Optional, in ms, default to 30000
+    forcedMode: 'real',
+    errorHandler: (response, reject) => {
+      // Optional, Custom handler for 3Commas error
+      const { error, error_description } = response;
+      reject(new Error(error_description ?? error));
+    },
+  });

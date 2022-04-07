@@ -3,6 +3,7 @@ import type { Result } from 'type/api';
 import { STATUS_CODE } from 'type/api';
 
 import type { Profile } from 'type/user';
+import { createThreeCommasAPIWithKey } from '../trading-bot/three-commas';
 
 type Props = {
   apiKey: string;
@@ -18,6 +19,9 @@ export const createAPICredential = async ({
   name,
 }: Props): Promise<Result<Profile>> => {
   try {
+    const api = await createThreeCommasAPIWithKey({ apiKey, apiSecret });
+    const data = await api.getBlackListPairs();
+
     const credential = await prismaClient.aPICredential.create({
       data: { apiKey, apiSecret, userId, name, status: 'ACTIVE' },
     });
@@ -29,6 +33,7 @@ export const createAPICredential = async ({
         currentAPICredential: true,
       },
     });
+
     return { data: user };
   } catch (error) {
     console.log(`[createAPICredential] ${error}`);

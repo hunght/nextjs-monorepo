@@ -1,11 +1,16 @@
+import type { AlertProps } from '@mui/material/Alert';
+import MuiAlert from '@mui/material/Alert';
 import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
-
 import Drawer from '@mui/material/Drawer';
+import Snackbar from '@mui/material/Snackbar';
+import Stack from '@mui/material/Stack';
 
 import Toolbar from '@mui/material/Toolbar';
 
 import * as React from 'react';
+import { useEffect } from 'react';
 import { AppbarContainer } from '../appbar';
 
 import { Sidebar } from './sidebar';
@@ -18,10 +23,32 @@ interface Props {
    * You won't need it on your project.
    */
   window?: () => Window;
+  error?: string;
+  success?: string;
 }
-
+const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(
+  props,
+  ref
+) {
+  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
 export const MainLayout: React.FC<Props> = (props) => {
-  const { window } = props;
+  const { window, error, success } = props;
+  const [open, setOpen] = React.useState(!error);
+  useEffect(() => {
+    setOpen(!!error);
+  }, [error]);
+
+  const handleClose = (
+    event?: React.SyntheticEvent | Event,
+    reason?: string
+  ) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    setOpen(false);
+  };
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const [drawerOpen, setDrawerOpen] = React.useState(true);
   const handleMobileDrawerToggle = () => {
@@ -37,6 +64,14 @@ export const MainLayout: React.FC<Props> = (props) => {
   };
   return (
     <Box sx={{ display: 'flex' }}>
+      <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+        <Alert
+          onClose={handleClose}
+          severity={error ? 'error' : 'success'}
+          sx={{ width: '100%' }}>
+          {error ?? success}
+        </Alert>
+      </Snackbar>
       <CssBaseline />
       <AppbarContainer
         drawerWidthCaculated={drawerWidthCaculated}

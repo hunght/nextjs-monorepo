@@ -1,21 +1,22 @@
-import { Button } from '@mui/material';
+import { Button, Checkbox } from '@mui/material';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
-import DialogTitle from '@mui/material/DialogTitle';
+
 import { DataGrid } from '@mui/x-data-grid';
 import type { GridColDef } from '@mui/x-data-grid';
 import type { APICredential } from '@prisma/client';
 import * as React from 'react';
-import { useDeleteAPICredentialMutation } from 'redux/api';
 
 const columns = ({
   onClickDelete,
   onClickEdit,
+  onSelectCurrentAPI,
 }: {
   onClickDelete: (id: string) => void;
   onClickEdit: (id: string) => void;
+  onSelectCurrentAPI: (id: string) => void;
 }): GridColDef[] => [
   { field: 'id', headerName: 'ID', width: 70 },
   { field: 'name', headerName: 'name', width: 130 },
@@ -24,7 +25,7 @@ const columns = ({
   { field: 'type', headerName: 'type', width: 130 },
   {
     field: 'col5',
-    headerName: 'Name 5',
+    headerName: '',
     width: 150,
 
     renderCell: ({ id }) => {
@@ -40,7 +41,7 @@ const columns = ({
   },
   {
     field: 'col6',
-    headerName: 'Name 6',
+    headerName: '',
     width: 150,
     renderCell: ({ id }) => {
       return (
@@ -53,14 +54,31 @@ const columns = ({
       );
     },
   },
+  {
+    field: 'col7',
+    headerName: 'Current API',
+    width: 150,
+    renderCell: ({ id }) => {
+      return (
+        <Checkbox
+          onClick={() => {
+            onSelectCurrentAPI(id.toString());
+          }}
+        />
+      );
+    },
+  },
 ];
 
-export const APICredentialTable: React.FC<{ apis: APICredential[] }> = ({
-  apis,
-}) => {
+type Props = {
+  apis: APICredential[];
+  onDeleteItem: (id: string) => void;
+};
+
+export const APICredentialTable: React.FC<Props> = ({ apis, onDeleteItem }) => {
   const [open, setOpen] = React.useState(false);
   const [selectedId, setSelectedId] = React.useState<string | undefined>();
-  const [deleteAPICredential, { isLoading }] = useDeleteAPICredentialMutation();
+
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -83,6 +101,9 @@ export const APICredentialTable: React.FC<{ apis: APICredential[] }> = ({
             console.log(id);
             console.log('==== end log ===');
           },
+          onSelectCurrentAPI: (id: string) => {
+            setSelectedId(id);
+          },
         })}
         pageSize={5}
         rowsPerPageOptions={[5]}
@@ -93,9 +114,6 @@ export const APICredentialTable: React.FC<{ apis: APICredential[] }> = ({
         onClose={handleClose}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description">
-        <DialogTitle id="alert-dialog-title">
-          {"Use Google's location service?"}
-        </DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
             You really want to delete this api credential
@@ -106,7 +124,8 @@ export const APICredentialTable: React.FC<{ apis: APICredential[] }> = ({
           <Button
             onClick={() => {
               if (selectedId) {
-                deleteAPICredential({ id: selectedId });
+                onDeleteItem(selectedId);
+                handleClose();
               }
             }}
             autoFocus>
