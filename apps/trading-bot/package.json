@@ -118,6 +118,7 @@
     "@emotion/styled": "11.8.1",
     "@fontsource/inter": "4.5.5",
     "@mui/icons-material": "5.5.1",
+    "@mui/lab": "5.0.0-alpha.76",
     "@mui/material": "5.5.1",
     "@mui/x-data-grid": "5.6.1",
     "@next-auth/prisma-adapter": "1.0.3",

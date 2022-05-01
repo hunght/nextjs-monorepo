@@ -8,6 +8,7 @@ import { useAppSelector } from 'redux/store';
 
 import { TradingBotTable } from '../blocks/list-table';
 
+import { PresetBots } from '../blocks/preset-bots';
 import { tradingBotConfig } from '../trading-bot.config';
 
 type Props = {
@@ -26,14 +27,16 @@ export const TradingBotPage: React.FC<Props> = () => {
         description="trading-bot nextjs monorepo example, https://github.com/hunght/nextjs-monorepo"
       />
       <MainLayout error={JSON.stringify(error)}>
-        <TradingBotTable
-          apis={data?.data ?? []}
-          onDeleteItem={(selectedId) => {
-            console.log(`==== selectedId ===`);
-            console.log(selectedId);
-            console.log('==== end log ===');
-          }}
-        />
+        <PresetBots>
+          <TradingBotTable
+            apis={data?.data ?? []}
+            onDeleteItem={(selectedId) => {
+              console.log(`==== selectedId ===`);
+              console.log(selectedId);
+              console.log('==== end log ===');
+            }}
+          />
+        </PresetBots>
       </MainLayout>
     </>
   );
